@@ -1,0 +1,773 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ng-re",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"con",
+				"controller	AngularJS"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "scripts/car.js",
+			"settings":
+			{
+				"buffer_size": 2879,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "todo.txt",
+			"settings":
+			{
+				"buffer_size": 96,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4406,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/draw.js",
+			"settings":
+			{
+				"buffer_size": 1233,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/usr/lib/node_modules/http-server/bin/http-server",
+			"settings":
+			{
+				"buffer_size": 2400,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\n//wait time\nvar W = 5,\n	numPos = 100,\n	TL = 50,\n	nums = d3.range(numPos),\n	carNum = 200;\n\nvar Colors = {\n	RED: \"#e74c3c\",\n	BLUE: \"#3498db\",\n	MAGENTA: \"#9b59b6\",\n	GREEN: \"#2ecc71\",\n	ORANGE: \"#f39c12\"\n};\n\nvar state = nums.map(function(d){\n	return {\n		empty: true,\n		newEmpty: true,\n		howLong: W+1,\n		number: d\n	};\n});\n\nvar carsArray = [];\n\nfunction Car(index){\n\n	this.index = index;\n\n	var c = this;\n\n	var initRamp = parseInt(Math.random()*(4));\n\n	var initPos = initRamp * 25 + 2;\n	var maxTripLength = 3.0;\n	var destProb = 1.0 - (maxTripLength - TL/25);\n\n	c.initPos = initPos;\n\n	var s = initPos;\n\n\n	c.destination = Math.random() >= destProb ? \n		(s + 48) % numPos  : (s + 73) % numPos ;\n\n	switch (c.destination) {\n		case 0: color = Colors.RED;\n				break;\n		case 25: color = Colors.BLUE;\n				break;\n		case 50: color = Colors.MAGENTA;\n				break;\n		case 75: color = Colors.GREEN;\n				break;\n		default: color = Colors.ORANGE;\n	};\n\n	c.color = color;\n\n	c.s = s;\n\n	c.choose = function(){\n\n		var next = state[(s + 1)%numPos];\n\n		if(next.empty && (next.howLong >= W)) {\n			s=(s+1)%numPos;\n			next.newEmpty = false;\n		}else{\n			state[s].newEmpty = false;\n		}\n\n		// s=(s+1)%numPos;\n\n		c.s=s;\n\n	}\n\n	// return c;\n\n}\n\n//=============GET IT GOING===============\n\n// setInterval(redraw, dur);\nvar paused = false;\nvar last = 0;\nvar numLoop = 0;\nvar dur = 50;\nvar tPerm = 0.5;\nvar timeSince = 0;\nvar rate = 20;\nvar timeSince2 = 0;\nvar cars\n// var rate2 = 5\n\nvar i = 0\n\nvar numLoop2\n\n\n// setInterval(function(){\n// 	// numLoop++;\n\n// 	timeSince++;\n\n// 	if(timeSince>rate){\n// 		timeSince = 0;\n// 		carsArray.push(new Car(i++));\n// 	}\n\n// 	// timeSince2++;\n\n// 	// if(timeSince2>rate2){\n// 		// timeSince2 = 0;\n// 		redraw();\n// 	// }\n\n\n// },50);\n\nvar run = function(){\n\n	d3.timer(function(elapsed){\n		t = (elapsed - last);\n\n		timeSince+=t;\n\n		timeSince2+=t;\n\n		if(timeSince>rate){\n			timeSince = 0;\n			carsArray.push(new Car(i++));\n		}\n\n		last = elapsed;\n\n\n		if(timeSince2>rate2){\n			timeSince2 = 0;\n			redraw();\n		}\n\n	  return paused;\n\n	});\n\n};\n\nrun();\n\n\nvar redraw = function(){\n\n	if (carsArray.length == 0) return;\n	\n	carsArray.forEach(function(d){\n		d.choose();\n	});\n\n	state.forEach(function(d){\n		if(d.newEmpty){\n			d.empty=true;\n			d.howLong++;\n		}\n		else{\n			d.howLong = 0;\n			d.empty = false;\n		}\n		d.newEmpty = true;\n	});\n\n\n	//Data Join\n	car = gCar.selectAll('.car')\n	    .data(carsArray)\n\n    car.attr({\n			transform: function(d){\n			  return \"rotate(\" + d.s / numPos * 360 + \")\";\n			}\n		});\n\n    car.enter()\n	    .append('g')\n	    .attr(\"class\",\"car\")\n	    .attr({\n					transform: function(d){\n					  return \"rotate(\" + d.s / numPos * 360 + \")\";\n					}\n				})\n	    .append(\"g\")\n			.call(sticker)\n				.attr({\n					class: \"g-sticker\",\n					transform: \"translate(0,\" + (-radius + 5 ) +\") scale(.4, 0.4) rotate(180)\",\n					fill: \"white\"\n				})\n\n\n};\n",
+			"file": "scripts/carold.js",
+			"file_size": 2796,
+			"file_write_time": 130397348850755508,
+			"settings":
+			{
+				"buffer_size": 2835,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 264.0,
+		"selected_items":
+		[
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"pre",
+				"HTMLPrettify"
+			],
+			[
+				"browse",
+				"Preferences: Browse Packages"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"brw",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 560.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/lewis/github/waves/road.html",
+		"/home/lewis/github/MFD/scripts/sim.js",
+		"/home/lewis/github/MFD/index.html",
+		"/home/lewis/github/MFD/todo.txt",
+		"/home/lewis/github/MFD/scripts/car.js",
+		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/Car.java",
+		"/home/lewis/github/MFD/styles/car.svg",
+		"/home/lewis/github/waves/chart.html",
+		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/Control.java",
+		"/home/lewis/github/housing/todo.txt",
+		"/home/lewis/github/waves/spreadsheet.ods",
+		"/home/lewis/github/waves/todo.txt",
+		"/home/lewis/github/waves/text.txt",
+		"/home/lewis/Documents/site-tracker/js/nvd3.js",
+		"/home/lewis/Documents/site-tracker/nvd3.css",
+		"/home/lewis/Documents/site-tracker/indexOld.html",
+		"/home/lewis/Documents/site-tracker/js/data.js",
+		"/home/lewis/Documents/site-tracker/y.json",
+		"/home/lewis/Documents/site-tracker/data.csv",
+		"/home/lewis/Documents/site-tracker/dc/test/data-addition-test.js",
+		"/home/lewis/Documents/site-tracker/css/custom.css",
+		"/home/lewis/Documents/site-tracker/js/crossfilter.js",
+		"/home/lewis/Documents/heylewis/CNAME",
+		"/home/lewis/Documents/heylewis redesign/imgs/vudlab.svg",
+		"/home/lewis/Documents/heylewis redesign/bootstrap-master/src/pagination/docs/demo.html",
+		"/home/lewis/Downloads/modern-business/pricing.html",
+		"/home/lewis/Documents/heylewis redesign/index.html",
+		"/home/lewis/Documents/heylewis redesign/views/writing.html",
+		"/home/lewis/Documents/heylewis redesign/docs/span.html",
+		"/home/lewis/Documents/heylewis redesign/css/modern-business.css",
+		"/home/lewis/Documents/heylewis redesign/template/carousel/carousel.html",
+		"/home/lewis/Documents/heylewis redesign/template/tooltip/tooltip-html-unsafe-popup.html",
+		"/home/lewis/Documents/heylewis redesign/views/home.html",
+		"/home/lewis/Documents/heylewis redesign/docs/pigs.html",
+		"/home/lewis/Documents/heylewis redesign/docs/shower.html",
+		"/home/lewis/Documents/heylewis redesign/docs/freegan.html",
+		"/home/lewis/Documents/heylewis redesign/views/footer.html",
+		"/home/lewis/Documents/heylewis redesign/docs/thematrix.html",
+		"/home/lewis/Documents/heylewis redesign/docs/south_oakland_barbershop.html",
+		"/home/lewis/Documents/heylewis redesign/template/accordion/accordion-group.html",
+		"/home/lewis/Documents/heylewis redesign/ui-bootstrap-custom-tpls-0.10.0.min.js",
+		"/home/lewis/Documents/heylewis redesign/docs/forty2.html",
+		"/home/lewis/Documents/heylewis redesign/template/typeahead/typeahead-match.html",
+		"/home/lewis/Downloads/modern-business/font-awesome/less/icons.less",
+		"/home/lewis/Documents/heylewis redesign/imgs/mortarboard.svg",
+		"/home/lewis/Documents/heylewis redesign/bootstrap-master/LICENSE",
+		"/home/lewis/Documents/heylewis redesign/docs/forty.html",
+		"/home/lewis/Documents/heylewis redesign/docs/groundhog.html",
+		"/home/lewis/Documents/heylewis redesign/fonts/glyphicons-halflings-regular.svg",
+		"/home/lewis/Documents/heylewis redesign/bootstrap-master/Gruntfile.js",
+		"/home/lewis/Documents/heylewis redesign/css/bootstrap.css",
+		"/home/lewis/Documents/heylewis redesign/imgs/barchart.svg",
+		"/home/lewis/Documents/heylewis redesign/docs/bradpitt.html",
+		"/home/lewis/Documents/heylewis redesign/docs/bloomfield.html",
+		"/home/lewis/Documents/heylewis redesign/docs/foodcarts.html",
+		"/home/lewis/Documents/heylewis redesign/docs/french.html",
+		"/home/lewis/Documents/heylewis redesign/docs/name.html",
+		"/home/lewis/Documents/heylewis redesign/docs/pan.html",
+		"/home/lewis/Documents/heylewis redesign/docs/varicocele.html",
+		"/home/lewis/Documents/heylewis redesign/css/custom.css",
+		"/home/lewis/Documents/heylewis redesign/docs/adddrop.html",
+		"/home/lewis/Documents/heylewis redesign/bootstrap-master/src/accordion/accordion.js",
+		"/home/lewis/Documents/heylewis redesign/js/ui.js",
+		"/home/lewis/Documents/heylewis redesign/views/video.html",
+		"/home/lewis/Downloads/modern-business/portfolio-2-col.html",
+		"/home/lewis/Documents/heylewis redesign/views/video2.html",
+		"/home/lewis/Documents/heylewis redesign/docs/accents.html",
+		"/home/lewis/Documents/heylewis redesign/heylewis-gh-pages/documents/accents.html",
+		"/home/lewis/Documents/heylewis redesign/views/workouts.html",
+		"/home/lewis/Downloads/modern-business/contact-form-submission.php",
+		"/home/lewis/Downloads/modern-business/font-awesome/css/font-awesome.min.css",
+		"/home/lewis/Downloads/modern-business/about.html",
+		"/home/lewis/Documents/heylewis redesign/views/about.html",
+		"/home/lewis/Downloads/modern-business/contact.php",
+		"/home/lewis/Documents/heylewis redesign/views/header.html",
+		"/home/lewis/Downloads/modern-business/faq.html",
+		"/home/lewis/Documents/heylewis redesign/heylewis.sublime-project",
+		"/home/lewis/Downloads/modern-business/index.html",
+		"/home/lewis/Documents/vudlab redesign/css/custom.css",
+		"/home/lewis/Documents/vudlab redesign/views/home.html",
+		"/home/lewis/Downloads/modern-business/fonts/glyphicons-halflings-regular.svg",
+		"/home/lewis/Documents/vudlab redesign/about.html",
+		"/home/lewis/Documents/vudlab redesign/views/header.html",
+		"/home/lewis/Documents/vudlab redesign/views/about.html",
+		"/home/lewis/Documents/vudlab redesign/todo.txt",
+		"/home/lewis/Documents/vudlab redesign/views/learn.html",
+		"/home/lewis/Documents/vudlab redesign/views/portfolio.html",
+		"/home/lewis/Documents/vudlab redesign/index2.html",
+		"/home/lewis/Documents/vudlab redesign/views/footer.html",
+		"/home/lewis/Documents/vudlab redesign/views/events.html",
+		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/scripts/beautify.js",
+		"/home/lewis/Documents/vudlab redesign/index.html",
+		"/home/lewis/Documents/vudlab redesign/imgs/newspaper.svg",
+		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/home/lewis/Documents/vudlab redesign/learn.html",
+		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.py",
+		"/home/lewis/Documents/vudlab redesign/css/modern-business.css",
+		"/home/lewis/Documents/vudlab redesign/imgs/mortarboard.svg",
+		"/home/lewis/Documents/vudlab redesign/font-awesome/fonts/FontAwesome.otf"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"usr",
+			"stopped",
+			"rate2",
+			"numloop",
+			"100",
+			"rate2",
+			"category",
+			"pathg",
+			"path",
+			"var car",
+			"new car",
+			"color",
+			"index",
+			"newempty",
+			"howLong",
+			"floor",
+			"c.s =",
+			"pace",
+			"50",
+			"rate",
+			"pace",
+			"s =",
+			"empty",
+			"howLong",
+			"rate2",
+			"howlong",
+			"dur",
+			"100",
+			"howLong",
+			"newEmpty",
+			"howlong",
+			"howLong",
+			"100",
+			"var s",
+			"choose",
+			"numpos",
+			"attr",
+			"index",
+			"car =",
+			"choose",
+			"destinationProbability",
+			"new Car",
+			"empty",
+			"d.empty",
+			"carsArray",
+			"cars",
+			"states",
+			"sticker",
+			"radius",
+			"numpatches",
+			"currentPosition",
+			"append",
+			"cars",
+			"tperm",
+			"new car",
+			"initramp",
+			"for",
+			"redraw",
+			"d3.timer",
+			"timer",
+			"car",
+			"new ",
+			"new",
+			"car",
+			"init",
+			"positionvac",
+			"positionvacinterval",
+			"W",
+			"w =",
+			"positionvacin",
+			"numPos",
+			"weeks",
+			"hostDim",
+			"filter",
+			"top",
+			"transitionDim",
+			"filter",
+			".css",
+			"_.",
+			".css",
+			"values",
+			"key",
+			".css",
+			"date",
+			"color",
+			"linear",
+			"date",
+			"crossfilter",
+			"y.",
+			"30",
+			"area",
+			"wiggle",
+			"date",
+			"stack",
+			"wiggle",
+			"range",
+			"domain",
+			"timeDim",
+			"output",
+			"name:",
+			"color",
+			"time",
+			"date",
+			"time",
+			"var x",
+			"bar",
+			"temperature",
+			"dayDim",
+			"dayDimt",
+			"dayDim",
+			"daydim",
+			"500",
+			"350px",
+			"pie",
+			"piechart",
+			"linkedin",
+			"filter",
+			"100",
+			"300",
+			"xUnits",
+			"value",
+			"host",
+			"wee",
+			"weeks",
+			"focus",
+			"200",
+			"400",
+			"\n   "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"destProb",
+			"numPos",
+			"s",
+			"carsArray",
+			"title",
+			"site",
+			"time",
+			"p",
+			"",
+			"docs"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "scripts/car.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2879,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2143,
+								2143
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2268.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "todo.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 96,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								96
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4406,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2233,
+								2233
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "scripts/draw.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								920,
+								920
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/usr/lib/node_modules/http-server/bin/http-server",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								40,
+								40
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "scripts/carold.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								781,
+								781
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "mfd.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"car.js",
+				"MFD/scripts/car.js"
+			],
+			[
+				"index",
+				"MFD/index.html"
+			],
+			[
+				"sim.js",
+				"MFD/scripts/sim.js"
+			],
+			[
+				"sim",
+				"MFD/scripts/sim.js"
+			],
+			[
+				"todo",
+				"waves/todo.txt"
+			],
+			[
+				"data.js",
+				"js/data.js"
+			],
+			[
+				"home",
+				"heylewis redesign/views/home.html"
+			],
+			[
+				"video",
+				"heylewis redesign/views/video.html"
+			],
+			[
+				"writing",
+				"heylewis redesign/views/writing.html"
+			],
+			[
+				"inde",
+				"heylewis redesign/index.html"
+			],
+			[
+				"freega",
+				"heylewis redesign/docs/freegan.html"
+			],
+			[
+				"matrix",
+				"heylewis redesign/docs/thematrix.html"
+			],
+			[
+				"ground",
+				"heylewis redesign/docs/groundhog.html"
+			],
+			[
+				"barber",
+				"heylewis redesign/docs/south_oakland_barbershop.html"
+			],
+			[
+				"ind",
+				"heylewis redesign/index.html"
+			],
+			[
+				"custom",
+				"heylewis redesign/css/custom.css"
+			],
+			[
+				"writin",
+				"heylewis redesign/views/writing.html"
+			],
+			[
+				"header",
+				"heylewis redesign/views/header.html"
+			],
+			[
+				"main",
+				"modern-business/font-awesome/less/icons.less"
+			],
+			[
+				"video2",
+				"heylewis redesign/views/video2.html"
+			],
+			[
+				"foot",
+				"heylewis redesign/views/footer.html"
+			],
+			[
+				"footer",
+				"heylewis redesign/views/footer.html"
+			],
+			[
+				"vudl",
+				"heylewis redesign/imgs/vudlab.svg"
+			],
+			[
+				"index2",
+				"vudlab redesign/index2.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/vudlab redesign/vudlab.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 190.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

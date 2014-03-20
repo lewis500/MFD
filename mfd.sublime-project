@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/lewis/github/waves"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/lewis/Downloads/Gridlock animation source code 4 10 06"
+		}
+	]
+}

@@ -1,0 +1,5 @@
+SHORT TERM
+
+add slider
+make slider control rates
+make it so cars check one and two stop in front
