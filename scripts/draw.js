@@ -1,48 +1,115 @@
 //===============PARAMETERS===================
-var margin = {top: 0, right: 20, bottom: 0, left: 20},
-    width = 600 - margin.left - margin.right,
-    height = 725 - margin.top - margin.bottom,
-    radius = (width-150)/2,
-    center = {x: width/2, y: height/2}
+var margin = {
+  top: 0,
+  right: 20,
+  bottom: 0,
+  left: 20
+},
+  width = 600 - margin.left - margin.right,
+  height = 725 - margin.top - margin.bottom,
+  radius = (width - 150) / 2,
+  center = {
+    x: width / 2,
+    y: height / 2
+  }
 
-//=============DRAWING HELPERS===============
+  //=============DRAWING HELPERS===============
 
-	var format = d3.round(2);
+var format = d3.round(2);
 
-  var toRads = 2*Math.PI;
+var toRads = 2 * Math.PI;
 
-  var offset = 20;    
+var offset = 20;
 
-  var roadMaker = d3.svg.arc()
-  	.innerRadius(radius-30)
-  	.outerRadius(radius+30)
-  	.startAngle(0)
-  	.endAngle(2*Math.PI);
+var roadMaker = d3.svg.arc()
+  .innerRadius(radius - 30)
+  .outerRadius(radius + 30)
+  .startAngle(0)
+  .endAngle(2 * Math.PI);
 
 //=============DRAW SVG AND ROAD===============
 
-	var sticker = d3.sticker("#car");
+var sticker = d3.sticker("#car");
 
-	var svg = d3.select("#main")
-		.append("svg")
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
-	  .append("g")
-	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var svg = d3.select("#main")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	var road = svg.append("g")
-			.attr("class","road");
+var road = svg.append("g")
+  .attr("class", "road")
+  .attr("transform", "translate(" + center.x + "," + center.y + ")");
 
-	road.append('path')
-			.attr({
-				d: roadMaker,
-				fill: "#111",
-				transform: "translate(" + center.x + "," + center.y + ")"
-			});
+road.append('path')
+  .attr({
+    d: roadMaker,
+    fill: "#111",
+  });
 
 //=============DRAW THE CARS===============
 
-  var gCar = road.append("g")
-      .attr('class', 'g-cars')
-      .attr("transform","translate(" + center.x + "," + center.y + ")" );
+var gCar = road.append("g")
+  .attr('class', 'g-cars')
+// .attr("transform", "translate(" + center.x + "," + center.y + ")");
 
+//DONUT CHART PART
+var arc = d3.svg.arc()
+  .outerRadius(radius + 30)
+  .innerRadius(radius - 30)
+  .startAngle(function(d) {
+    return (d.number - 0.5) / 60 * 2 * Math.PI;
+  })
+  .endAngle(function(d) {
+    return (d.number + 1 - 0.5) / 60 * 2 * Math.PI;
+  });
+
+var shade = d3.scale.ordinal()
+  .domain(d3.range(0, 3))
+  .range(['rgb(239,243,255)', 'rgb(189,215,231)', 'rgb(107,174,214)', 'pink']);
+
+var rampNumbers = [];
+
+var rampNumbers = [58, 2, 13, 17, 28, 32, 43, 47]
+
+// d3.range(0, 4).forEach(function(n) {
+//   rampNumbers.push({
+//     num: n,
+//     place: (n * 15 - 2)
+//   });
+//   rampNumbers.push({
+//     num: n,
+//     place: n * 15 + 2
+//   });
+// });
+
+var carColors = d3.scale.ordinal()
+  .domain(d3.range(0, 4))
+  .range(["red", "green", "blue", "yellow"]);
+
+var rampG = road.selectAll("ramps")
+  .data(rampNumbers.map(function(d, i) {
+    return {
+      num: Math.floor(i / 2),
+      place: d
+    }
+  }))
+  .enter()
+  .append("g")
+  .attr("class", "g-ramp")
+  .attr("transform", function(d) {
+    var m = d.place / 60 * 360;
+    return "rotate(" + m + ") translate(" + [0, -radius] + ")"
+  });
+
+rampG.append("rect")
+  .attr({
+    width: 25,
+    height: 45,
+    fill: function(d) {
+      return carColors(d.num);
+    },
+    y: 30,
+    x: -12.5
+  });
