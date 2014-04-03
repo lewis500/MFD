@@ -1,18 +1,12 @@
 SHORT TERM
 
-
-get rid of bounce
-
-
-add slider
-make slider control rates
-make it so cars check one and two stop in front
-
-
-
-
-
+keep track of the exit rate
+create bins for the remaining cars
+print the exit rate
 
 
 LONG RANGE
 add drop shadow!
+bring back bounce
+
+use angular to set up watches so you can plot the variables

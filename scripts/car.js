@@ -4,14 +4,6 @@ var W = 4,
   TL = numPos * .5,
   nums = d3.range(numPos)
 
-  var Colors = {
-    RED: "#e74c3c",
-    BLUE: "#3498db",
-    MAGENTA: "#9b59b6",
-    GREEN: "#2ecc71",
-    ORANGE: "#f39c12"
-};
-
 var state = nums.map(function(d) {
   return {
     empty: true,
@@ -26,13 +18,13 @@ var arcG = road.selectAll(".arc")
   .enter().append("g")
   .attr("class", "arc");
 
-var arcPath = arcG.append("path")
-  .attr("d", arc)
-  .style("fill", function(d) {
-    return shade(d3.min([d.howLong,3]));
-  })
-  .style("opacity",0.4)
-  .attr("class","statusArc");
+// var arcPath = arcG.append("path")
+//   .attr("d", arc)
+//   .style("fill", function(d) {
+//     return shade(d3.min([d.howLong, 3]));
+//   })
+//   .style("opacity", 0.4)
+//   .attr("class", "statusArc");
 
 var carsArray = [];
 
@@ -42,22 +34,22 @@ function Car(index) {
 
   var c = this;
 
-  var initRamp = parseInt(Math.random() * (4));
+  var initRamp = parseInt(Math.random() * (3));
 
-  var initPos = initRamp * numPos / 4 + 2;
+  var initPos = rampNumbers[initRamp * 2 + 1];
 
   c.initPos = initPos;
 
   var s = initPos;
 
-  function findExit(){
-  	var prospect = parseInt(Math.random() * (4));
-  	return (prospect == initRamp) ? findExit() : prospect;
+  function findExit() {
+    var prospect = parseInt(Math.random() * (3));
+    return (prospect == initRamp) ? findExit() : prospect;
   }
 
   c.exitRamp = findExit();
 
-  c.exitPos = rampNumbers[c.exitRamp * 2]
+  c.exitPos = rampNumbers[c.exitRamp * 2];
 
   c.stopped = false;
 
@@ -65,12 +57,12 @@ function Car(index) {
 
   c.choose = function() {
 
-  	if((c.exitPos) == s) {
+    if ((c.exitPos) == s) {
 
-  		var me = carsArray.indexOf(c);
-  		carsArray.splice(me,1);
-  		return;
-  	}
+      var me = carsArray.indexOf(c);
+      carsArray.splice(me, 1);
+      return;
+    }
 
     var next = state[(s + 1) % numPos];
 
@@ -96,20 +88,15 @@ var paused = false;
 var last = 0;
 var dur = 50;
 var tPerm = 0.5;
-var timeSince = 0;
-var rate = 2000;
-var timeSince2 = 0;
-var rate2 = 150
+var rate1 = 1000;
+var rate2 = 75
 var color = d3.scale.category20c().domain(d3.range(20));
 var i = 0;
-
-
 
 function add() {
   if (carsArray.length < 20) {
     var h = new Car(i++);
-    if (state[h.s].empty) {
-      timeSince = 0;
+    if (state[h.initPos].empty && state[h.initPos].newEmpty) {
       carsArray.push(h);
       state[h.s].newEmpty = false;
       state[h.s].empty = false;
@@ -121,7 +108,7 @@ var redraw = function() {
 
   if (carsArray.length == 0) return;
 
-  carsArray.forEach(function(car,i){
+  carsArray.forEach(function(car, i) {
     car.choose();
   });
 
@@ -139,10 +126,15 @@ var redraw = function() {
 
   //JOIN
   var car = gCar.selectAll('.car')
-    .data(carsArray, function(d){ return d.index; });
+    .data(carsArray, function(d) {
+      return d.index;
+    });
+
+  car.exit().remove();
+
 
   //UPDATE
-  car.transition().duration(rate2).ease('linear').attr({
+  car.transition().ease('linear').attr({
     transform: function(d) {
       return "rotate(" + d.s / numPos * 360 + ")";
     }
@@ -158,41 +150,83 @@ var redraw = function() {
       }
     })
     .append("g")
-    .append("rect")
-    .attr({
-    	y: (-radius +5),
-    	width: 8,
-    	height: 8,
-  	  fill: function(d) {
-  	    return carColors(d.exitRamp);
-  	  }
-    });
-
-    //UPDATE ARCS
-
-    arcG.data(state);
-
-    arcPath.transition().duration(rate2).ease('linear').style("fill", function(d) {
-  	    return shade(d3.min([d.howLong,3]));
-  	  });
-
-    // .call(sticker)
+  .call(sticker)
+  .attr({
+    class: "g-sticker",
+    transform: "translate(0," + (-radius + 5) + ") scale(.3) rotate(180)",
+      fill: function(d) {
+        return carColors(d.exitRamp);
+      }
+  });
+    // .append("rect")
     // .attr({
-    //   class: "g-sticker",
-    //   transform: "translate(0," + (-radius + 5) + ") scale(.5) rotate(180)",
+    //   y: (-radius + 5),
+    //   width: 8,
+    //   height: 8,
     //   fill: function(d) {
-    //     return color(d.index % 2 == 0 ? d.index : d.index + 10);
+    //     return carColors(d.exitRamp);
     //   }
     // });
-  car.exit().remove();
+
+  // //UPDATE ARCS
+
+  // arcG.data(state);
+
+  // arcPath.transition().duration(rate2).ease('linear').style("fill", function(d) {
+  //   return shade(d3.min([d.howLong, 3]));
+  // });
+
 
 };
 
-var runInterval = setInterval(redraw, rate2);
+var paused = false;
 
-var addInterval = setInterval(add, 2000);
+function runner(fun, interval){
 
-function pause() {
-  clearInterval(runInterval);
-  clearInterval(addInterval);
+	var t = 0, last = 0, timeSince = 0;
+
+	d3.timer( function(elapsed){
+		t = (elapsed - last);
+		timeSince = timeSince + t;
+		if(timeSince > interval) {
+			timeSince = 0;
+			fun();
+		}
+		last = elapsed;
+		return paused;
+	});
+
+	this.update = function(newInterval){
+		interval = newInterval;
+	}
+
+	return this;
+
 }
+
+var a, b;
+
+function run(){
+	paused = false;
+	a = new runner(redraw, rate2);
+	b = new runner(add, rate1);
+}
+
+function pause(){
+	paused = true;
+}
+
+run();
+
+function adjustRate(ev, ui){
+	b.update(ui.value);
+}
+
+// var runInterval = setInterval(redraw, rate2);
+
+// var addInterval = setInterval(add, 2000);
+
+// function pause() {
+//   clearInterval(runInterval);
+//   clearInterval(addInterval);
+// }

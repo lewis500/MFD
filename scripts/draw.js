@@ -13,6 +13,14 @@ var margin = {
     y: height / 2
   }
 
+
+  var colorKey = {
+  	green: "#1abc9c",
+  	red: "#e74c3c",
+  	blue: "#3498db",
+  	yellow: "#f1c40f"
+  }
+
   //=============DRAWING HELPERS===============
 
 var format = d3.round(2);
@@ -42,17 +50,8 @@ var road = svg.append("g")
   .attr("class", "road")
   .attr("transform", "translate(" + center.x + "," + center.y + ")");
 
-road.append('path')
-  .attr({
-    d: roadMaker,
-    fill: "#111",
-  });
 
-//=============DRAW THE CARS===============
 
-var gCar = road.append("g")
-  .attr('class', 'g-cars')
-// .attr("transform", "translate(" + center.x + "," + center.y + ")");
 
 //DONUT CHART PART
 var arc = d3.svg.arc()
@@ -71,7 +70,7 @@ var shade = d3.scale.ordinal()
 
 var rampNumbers = [];
 
-var rampNumbers = [58, 2, 13, 17, 28, 32, 43, 47]
+var rampNumbers = [56, 4, 11, 19, 26, 34, 42, 49]
 
 // d3.range(0, 4).forEach(function(n) {
 //   rampNumbers.push({
@@ -86,13 +85,14 @@ var rampNumbers = [58, 2, 13, 17, 28, 32, 43, 47]
 
 var carColors = d3.scale.ordinal()
   .domain(d3.range(0, 4))
-  .range(["red", "green", "blue", "yellow"]);
+  .range(d3.values(colorKey));
 
 var rampG = road.selectAll("ramps")
   .data(rampNumbers.map(function(d, i) {
     return {
       num: Math.floor(i / 2),
-      place: d
+      place: d,
+      on: (i%2 == 0 ) ? true : false
     }
   }))
   .enter()
@@ -101,9 +101,14 @@ var rampG = road.selectAll("ramps")
   .attr("transform", function(d) {
     var m = d.place / 60 * 360;
     return "rotate(" + m + ") translate(" + [0, -radius] + ")"
-  });
+  })
+  .attr("class", function(d){ return d.on ? "on" : "off"; })
 
-rampG.append("rect")
+rampG.append("g")
+	.attr("transform",function(d,i){
+		return "rotate(" + (d.on ? -30 : 30 ) + ")"
+	})
+	.append("rect")
   .attr({
     width: 25,
     height: 45,
@@ -113,3 +118,15 @@ rampG.append("rect")
     y: 30,
     x: -12.5
   });
+
+var roadPath = road.append('path')
+  .attr({
+    d: roadMaker,
+    fill: "#111",
+  });
+
+//=============DRAW THE CARS===============
+
+var gCar = road.append("g")
+  .attr('class', 'g-cars')
+// .attr("transform", "translate(" + center.x + "," + center.y + ")");
