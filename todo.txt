@@ -1,4 +1,9 @@
 SHORT TERM
+make it so they pause before exiting
+raise average trip length
+make exits go onto the road
+add sliders
+
 
 keep track of the exit rate
 create bins for the remaining cars
@@ -10,3 +15,10 @@ add drop shadow!
 bring back bounce
 
 use angular to set up watches so you can plot the variables
+
+
+ANGULAR CONVERSION
+make a pause button directive with transclude
+
+
+

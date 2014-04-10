@@ -1,61 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8"> 
 
     <!-- ============== CSS ===================== -->
     <title>Simulation</title>
     <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="styles/slider.css"> -->
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="styles/slider.css">
+    <link rel="stylesheet" href="styles/style.css">
+
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script src="libraries/angular.min.js"></script>
-    <script src="libraries/buttons.js"></script>
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <link rel="stylesheet" href="styles/style.css">
 
 </head>
 
 <!-- ============== BODY =================== -->
 
-<body ng-app="mainApp">
+<body>
 
-    <div class="container" ng-controller="mainCtrl">
+    <div class="container">
 
-        <div class="row">
-            <div class="col-md-6">
-              <div infrastructure></div>
-              <div scatter-chart></div>
-            </div>
+        <!-- <button id="pause" class="btn btn-lg btn-warning">Pause</button> -->
+        <!-- <button id="reset" class="btn btn-lg btn-danger">Reset</button> -->
 
-            <div id="sliders" class="col-md-5">
-                <strong>Ramp Rate</strong>
-                <div ui-slider="{change: adder.update }" min="100" max="700" ng-model="addRate"></div>
-                <p><strong>{{addRate}}</strong> ms between entries </p>
+        <div id="main"></div>
 
-                <strong>Speed</strong>
-                <div ui-slider="{change: ticker.update }" min="8" max="75" ng-model="tickRate"></div>
-                <p><strong>{{tickRate}}</strong></p>
-                <div class="btn-group" >
-                    <button type="button" class="btn btn-primary" ng-model="paused" btn-checkbox>
-                        Pause</button>
-                    <!-- <button type="button" class="btn btn-primary" ng-model="paused" btn-radio="false">Play</button> -->
-                </div>
-
-                <div bar-chart></div>
-
-            </div>
-
-
-        </div>
-
-
-
-
+        <div id="slider"></div>
 
     </div>
+
+    <script>
+    $(function() {
+        $("#slider").slider({
+            max: 2000,
+            min: 400,
+            stop: 200,
+            value: 1000,
+            slide: adjustRate
+        });
+    });
+    </script>
 
     <div id="sticker1" class="sticker" style="opacity: 0;">
 
@@ -75,25 +62,23 @@
 </body>
 
 <!-- ============== LIBRARIES =================== -->
-<script type="text/javascript" src="libraries/angular-slider.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script src="libraries/underscore.min.js"></script>
 <script src="libraries/d3.v3.min.js" charset="utf-8"></script>
 <script src="libraries/sticker.js"></script>
 
 
 <script src="scripts/draw.js"></script>
-<!-- <script src="libraries/slider.js"></script> -->
+<script src="libraries/slider.js"></script>
 
 
 <!-- ============== SCRIPTS =================== -->
 
 <script type="text/javascript">
-var app = angular.module('mainApp', ['ui.bootstrap', 'ui.slider']);
+var app = angular.module('mainApp', []);
+
 </script>
 
-<script src="scripts/controller.js"></script>
-<script src="scripts/infrastructure.js"></script>
-<script src="scripts/bar.js"></script>
-<script src="scripts/scatter.js"></script>
-
+<script src="scripts/car.js"></script>
 
 </html>

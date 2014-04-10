@@ -2,7 +2,7 @@
 var W = 4,
   numPos = 60,
   TL = numPos * .5,
-  nums = d3.range(numPos)
+  nums = d3.range(numPos);
 
 var state = nums.map(function(d) {
   return {

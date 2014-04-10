@@ -13,7 +13,6 @@ var margin = {
     y: height / 2
   }
 
-
   var colorKey = {
   	green: "#1abc9c",
   	red: "#e74c3c",
@@ -71,17 +70,6 @@ var shade = d3.scale.ordinal()
 var rampNumbers = [];
 
 var rampNumbers = [56, 4, 11, 19, 26, 34, 42, 49]
-
-// d3.range(0, 4).forEach(function(n) {
-//   rampNumbers.push({
-//     num: n,
-//     place: (n * 15 - 2)
-//   });
-//   rampNumbers.push({
-//     num: n,
-//     place: n * 15 + 2
-//   });
-// });
 
 var carColors = d3.scale.ordinal()
   .domain(d3.range(0, 4))
