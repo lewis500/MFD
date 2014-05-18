@@ -1,0 +1,836 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"inter",
+				"intervalAvg"
+			],
+			[
+				"exit",
+				"exitHistory"
+			],
+			[
+				"interval",
+				"intervalAvg"
+			],
+			[
+				"avg",
+				"intervalAvg"
+			],
+			[
+				"interva",
+				"intervalAdd"
+			],
+			[
+				"tick",
+				"tickRate"
+			],
+			[
+				"movA",
+				"movAvgLength"
+			],
+			[
+				"res",
+				"reservationGroup"
+			],
+			[
+				"$inter",
+				"$interval	AngularJS"
+			],
+			[
+				"parkingLot",
+				"parkingLotStall"
+			],
+			[
+				"lot",
+				"lotData"
+			],
+			[
+				"customer",
+				"customerId"
+			],
+			[
+				"arterials",
+				"arterialsConverted"
+			],
+			[
+				"art",
+				"arterialsProjected"
+			],
+			[
+				"non",
+				"non-scaling-stroke"
+			],
+			[
+				"add",
+				"addRate"
+			],
+			[
+				"fd",
+				"fdi	function(d, i) { return d; }"
+			],
+			[
+				"y",
+				"yAxis"
+			],
+			[
+				"ma",
+				"margin	margin convention"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"num",
+				"numCars"
+			],
+			[
+				"con",
+				"controller	AngularJS"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 327.0,
+		"selected_items":
+		[
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"prtt",
+				"Preferences: Settings - Default"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"uild",
+				"Build: Build"
+			],
+			[
+				"latex",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"pre",
+				"Permute Lines: Unique"
+			],
+			[
+				"rett",
+				"HTMLPrettify"
+			],
+			[
+				"snippet",
+				"Snippet: function(d, i) { return d; }"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/lewis/github/MFD/scripts/bar.js",
+		"/home/lewis/github/MFD/scripts/infrastructure.js",
+		"/home/lewis/github/MFD/scripts/controller.js",
+		"/home/lewis/github/MFD/index.html",
+		"/home/lewis/Desktop/simulation mfd todo",
+		"/home/lewis/Desktop/todo housing.txt",
+		"/home/lewis/github/MFD/todo.txt",
+		"/home/lewis/github/MFD/scripts/car.js",
+		"/home/lewis/github/MFD/mfd.sublime-project",
+		"/home/lewis/github/valet-analytics/parse-mock/libraries/stamen.js",
+		"/home/lewis/github/valet-analytics/maps/arterials/stclines_arterial.dbf",
+		"/home/lewis/Desktop/luxe todo",
+		"/home/lewis/github/valet-analytics/parse-mock/styles/main.css",
+		"/home/lewis/github/valet-analytics/maps/pages/stamen.html",
+		"/home/lewis/Desktop/luxe todo~",
+		"/home/lewis/Desktop/todo housing.txt~",
+		"/home/lewis/github/valet-analytics/parse-mock/js/map.js",
+		"/home/lewis/github/valet-analytics/parse-mock/index.html",
+		"/home/lewis/github/valet-analytics/maps/pages/plotter.html",
+		"/home/lewis/github/valet-analytics/maps/parking/parking.geojson",
+		"/home/lewis/github/valet-analytics/parse-mock/js/services/ParseServices.js",
+		"/home/lewis/github/valet-analytics/parse-mock/js/services/ParseQueryAngular.js",
+		"/home/lewis/github/valet-analytics/parse-mock/js/geojson.js",
+		"/home/lewis/github/valet-analytics/parse-mock/libraries/parse.min.js",
+		"/home/lewis/github/valet-analytics/parse-mock/libraries/plotter.js",
+		"/home/lewis/github/valet-analytics/parse-mock/styles/bootstrap/css/bootstrap-theme.min.css",
+		"/home/lewis/github/valet-analytics/parse-mock/styles/bootstrap/css/bootstrap-theme.css",
+		"/home/lewis/github/valet-analytics/parse-mock/statetranslation.js",
+		"/home/lewis/github/valet-analytics/parse-mock/libraries/topojson.v1.min.js",
+		"/home/lewis/github/bottleneck/simulation/scripts/example.js",
+		"/home/lewis/Desktop/bottleneck todo",
+		"/usr/share/inkscape/keys/default.xml",
+		"/home/lewis/github/bottleneck/pics/example.svg",
+		"/home/lewis/github/bottleneck/pics/E.svg",
+		"/home/lewis/github/bottleneck/simulation/index.html",
+		"/home/lewis/Desktop/to do/todo housing.txt",
+		"/home/lewis/Desktop/to do/bottleneck todo",
+		"/usr/share/applications/defaults.list",
+		"/home/lewis/github/valet-analytics/parse-mock/js/modules/Monsters.js",
+		"/home/lewis/github/valet-analytics/maps/index.html",
+		"/home/lewis/github/valet-analytics/parse-mock/js/data.js",
+		"/home/lewis/github/valet-analytics/maps/parking/On-street Parking Census Data Guide - Shortcut.lnk",
+		"/home/lewis/github/valet-analytics/maps/libs/d3.v3.js",
+		"/home/lewis/github/valet-analytics/maps/parking/SFpark_OnStreetParkingCensus_201404.xlsx",
+		"/home/lewis/github/parse-angular-demo-master/node_modules/grunt-contrib-mincss/docs/mincss-overview.md",
+		"/home/lewis/github/parse-angular-demo-master/components/sass-bootstrap/Makefile",
+		"/home/lewis/github/parse-angular-demo-master/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/store/true.js",
+		"/home/lewis/github/parse-angular-demo-master/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/action/store.js",
+		"/home/lewis/github/parse-angular-demo-master/node_modules/grunt-karma/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/ws/bench/parser.benchmark.js",
+		"/home/lewis/github/parse-angular-demo-master/components/modernizr/feature-detects/pointerlock-api.js",
+		"/home/lewis/github/parse-angular-demo-master/package.json",
+		"/home/lewis/github/parse-angular-demo-master/node_modules/grunt-cli/AUTHORS",
+		"/home/lewis/github/parse-angular-demo-master/build/app/scripts/libs/angular-ui-router.js",
+		"/home/lewis/github/parse-angular-demo-master/.sass-cache/2ab931e314902320f054d93b6c55c4185e894dd6/_user-interface.scssc",
+		"/home/lewis/github/parse-angular-demo-master/components/modernizr/feature-detects/unicode.js",
+		"/home/lewis/github/parse-angular-demo-master/client/index.html",
+		"/home/lewis/github/parse-angular-demo-master/build/app/scripts/services/ParseCloudCodeAngular.js",
+		"/home/lewis/github/parse-angular-demo-master/components/jquery/src/data.js",
+		"/home/lewis/github/parse-angular-demo-master/build/components/jquery/src/data.js",
+		"/home/lewis/github/parse-angular-demo-master/demo.sublime-project",
+		"/home/lewis/github/parse-angular-demo-master/node_modules/grunt-karma/node_modules/karma/node_modules/log4js/test/dateFileAppender-test.js",
+		"/home/lewis/github/parse-angular-demo-master/components/modernizr/feature-detects/dataview-api.js",
+		"/home/lewis/github/parse-angular-demo-master/client/app/views/debug.html",
+		"/home/lewis/github/parse-angular-demo-master/Gruntfile.coffee",
+		"/home/lewis/github/valet-node/Gemfile",
+		"/home/lewis/github/valet-node/node_modules/memcached/examples/simple_events.js",
+		"/home/lewis/github/valet-node/config/staging.js",
+		"/home/lewis/Documents/valet-analytics/parse-mock/js/graphs.js",
+		"/home/lewis/Documents/valet-analytics/parse-mock/js/underscore-min.js",
+		"/home/lewis/Documents/valet-analytics/maps/arterials/arterial.geojson",
+		"/home/lewis/Documents/valet-analytics/maps/arterials/stclines_arterial.prj",
+		"/home/lewis/Documents/valet-analytics/maps/pages/gmaps.html",
+		"/home/lewis/Documents/valet-analytics/maps/json/parser.js",
+		"/home/lewis/github/valet-analytics/parse-mock/libraries/leaflet.js",
+		"/home/lewis/github/valet-analytics/parse-mock/styles/leaflet.css",
+		"/home/lewis/github/valet-analytics/maps/bay_area/bayarea_general.shp",
+		"/home/lewis/github/valet-analytics/maps/bay_area/bayarea_general.prj",
+		"/home/lewis/github/valet-analytics/parse-mock/styles/bootstrap/fonts/glyphicons-halflings-regular.svg",
+		"/home/lewis/github/valet-analytics/maps/pages/gmaps.html",
+		"/home/lewis/github/valet-analytics/parse-mock/js/ng-grid/src/classes/styleProvider.js",
+		"/home/lewis/github/valet-analytics/maps/json/stops.json",
+		"/home/lewis/github/valet-analytics/maps/scripts",
+		"/home/lewis/github/valet-analytics/parse-mock/js/graphs.js",
+		"/home/lewis/github/valet-analytics/parse-mock/js/tables/index.html",
+		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/lewis/github/valet-analytics/parse-mock/js/line-chart.js",
+		"/home/lewis/github/valet-analytics/pages/index.html",
+		"/home/lewis/github/valet-analytics/pages/stamen.html",
+		"/home/lewis/github/valet-analytics/pages/gmaps_old.html",
+		"/home/lewis/Desktop/to do/luxe todo",
+		"/home/lewis/github/valet-analytics/json/parkingLocs.json",
+		"/home/lewis/Desktop/to do/gentrification todo",
+		"/home/lewis/github/valet-analytics/parking/parking.geojson",
+		"/home/lewis/github/valet-analytics/json/parser.js",
+		"/home/lewis/github/valet-analytics/pages/gmaps.html",
+		"/home/lewis/github/valet-analytics/libs/d3.v3.js",
+		"/home/lewis/github/valet-analytics/arterials/stclines_arterial.dbf",
+		"/home/lewis/Desktop/to do/simulation mfd todo",
+		"/home/lewis/github/valet-analytics/scripts",
+		"/home/lewis/github/valet-analytics/pages/plotter.html",
+		"/home/lewis/github/valet-analytics/json/stops.json",
+		"/home/lewis/Dropbox/CV/moderncv.cls",
+		"/home/lewis/Dropbox/CV/cv automatic.out",
+		"/home/lewis/Dropbox/CV/cv automatic.log",
+		"/home/lewis/Dropbox/CV/cv automatic.aux",
+		"/home/lewis/github/valet-analytics/bay_area/bay.json",
+		"/home/lewis/Dropbox/CV/my cv.lyx",
+		"/home/lewis/github/valet-analytics/bay_area/bay.geojson",
+		"/home/lewis/github/valet-analytics/counties/bayarea_county.htm",
+		"/home/lewis/github/valet-analytics/counties/bay_counties.geojson",
+		"/home/lewis/github/valet-analytics/bay_area/bayarea_general.dbf",
+		"/home/lewis/github/valet-analytics/zillow/zillow_hoods.geojson",
+		"/home/lewis/github/valet-analytics/json/neighborhoods.json",
+		"/home/lewis/github/valet-analytics/neighborhoods/planning_neighborhoods.dbf",
+		"/home/lewis/github/valet-analytics/json/exampleresponse.json",
+		"/home/lewis/github/valet-analytics/parking/parking.json",
+		"/home/lewis/github/sf-maps/parking/parking.json",
+		"/home/lewis/github/sf-maps/parking/parking.geojson",
+		"/home/lewis/github/sf-maps/scripts",
+		"/home/lewis/github/sf-maps/pages/index.html",
+		"/home/lewis/github/sf-maps/libs/plotter.js",
+		"/home/lewis/github/sf-maps/neighborhoods/neighborhoods.json",
+		"/home/lewis/github/sf-maps/counties.json",
+		"/home/lewis/github/sf-maps/fips",
+		"/home/lewis/github/housing/housing graphs.ipynb",
+		"/home/lewis/github/MFD/styles/slider.css",
+		"/home/lewis/github/MFD/libraries/slider.js",
+		"/home/lewis/github/MFD/slider.js"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/home/lewis/github/parse-angular-demo-master/client",
+			"/home/lewis/github/parse-angular-demo-master/build"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"intervalavg",
+			"intervalAvg",
+			"exithistory",
+			"movavg",
+			"intervalavg",
+			"movavg =",
+			"movavg",
+			"timesince",
+			"timesinceAdd",
+			"avgIn",
+			"avgInterval",
+			"exitstats",
+			"movavg",
+			"exited",
+			"movavgrange",
+			"getmovingaverage",
+			"movavg",
+			"car",
+			"new Car",
+			"exitstats",
+			"θ",
+			"start",
+			"addRate",
+			"paused",
+			"$s.runner",
+			"reset",
+			"numcars",
+			"runner",
+			"subG",
+			"runner",
+			"var",
+			"addrate",
+			"add",
+			"paused",
+			"numpos",
+			"numcars",
+			"movavg",
+			"state",
+			"lastcount",
+			"add()",
+			"add",
+			"runner",
+			"unner",
+			"initpos",
+			"index",
+			"initramp",
+			"$scope",
+			"runner",
+			"looper",
+			"θ",
+			"ϕ",
+			"rampnumbers",
+			"scope",
+			"request.loc",
+			"projector",
+			"drawand",
+			"var svg",
+			"markers",
+			"marker",
+			"watchFunction",
+			"reset",
+			"requestMarker",
+			"longlat",
+			"customerMarker",
+			"user",
+			"marker",
+			"pinCircle",
+			"request",
+			"requests",
+			"request",
+			"requests",
+			"pincircle",
+			"style",
+			"reset",
+			"topLeft",
+			")",
+			"(",
+			"path",
+			"width",
+			"L.geojs",
+			"interval",
+			"data",
+			"query",
+			"marker",
+			"request",
+			"request =",
+			"layer",
+			"DL",
+			"deltaleft",
+			"cumDL",
+			"agents",
+			"round",
+			"500",
+			"cumprob",
+			"500",
+			"var p =",
+			"findtoll",
+			"gedit",
+			"A.w",
+			"findtoll",
+			"toll",
+			"findtoll",
+			"example",
+			"findtoll",
+			"toll",
+			"push",
+			"toll",
+			"prob",
+			"style",
+			"v.",
+			"foreach",
+			"request",
+			"parseQueryAngular",
+			"monsterToSave",
+			"location",
+			"parsequer",
+			"monster",
+			"ng-",
+			"view",
+			"query",
+			"parseq",
+			"view",
+			"ui-v",
+			"app",
+			"view",
+			"route",
+			"view",
+			"ui-view"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"scope",
+			"spots",
+			"$s",
+			"$scope",
+			"C",
+			"updateWithNewData",
+			"drawAndRezoom",
+			"pin",
+			"customers",
+			"customer",
+			"customers",
+			"]",
+			"[",
+			"sublime_text",
+			"res.",
+			"]",
+			"[",
+			"Converted",
+			"\\cvitem",
+			"sublime_text",
+			"md",
+			"500",
+			"400",
+			"col-xs",
+			"θ",
+			"ϕ.",
+			"ϕ",
+			"θ",
+			"tickRate",
+			"addRate",
+			"pickExit",
+			"tick"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/home/lewis/github/tracker"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/lewis/Desktop"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"controll",
+				"MFD/scripts/controller.js"
+			],
+			[
+				"todo",
+				"Desktop/simulation mfd todo"
+			],
+			[
+				"bars",
+				"scripts/bar.js"
+			],
+			[
+				"infra",
+				"scripts/infrastructure.js"
+			],
+			[
+				"infras",
+				"scripts/infrastructure.js"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"main.css",
+				"parse-mock/styles/main.css"
+			],
+			[
+				"map",
+				"parse-mock/js/map.js"
+			],
+			[
+				"stamen.html",
+				"maps/pages/stamen.html"
+			],
+			[
+				"luxe",
+				"Desktop/luxe todo"
+			],
+			[
+				".css",
+				"parse-mock/styles/main.css"
+			],
+			[
+				"map.js",
+				"parse-mock/js/map.js"
+			],
+			[
+				"parse",
+				"parse-mock/js/services/ParseServices.js"
+			],
+			[
+				"parseq",
+				"parse-mock/js/services/ParseQueryAngular.js"
+			],
+			[
+				"parsequer",
+				"parse-mock/js/services/ParseQueryAngular.js"
+			],
+			[
+				"geojson",
+				"parse-mock/js/geojson.js"
+			],
+			[
+				"geojson.js",
+				"parse-mock/js/geojson.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"example.js",
+				"simulation/scripts/example.js"
+			],
+			[
+				"data",
+				"parse-mock/js/data.js"
+			],
+			[
+				"monster",
+				"parse-mock/js/modules/Monsters.js"
+			],
+			[
+				"about.html",
+				"build/app/views/about.html"
+			],
+			[
+				"ui-router",
+				"build/app/scripts/libs/angular-ui-router.js"
+			],
+			[
+				"data.js",
+				"components/jquery/src/data.js"
+			],
+			[
+				"index.htm",
+				"client/index.html"
+			],
+			[
+				"zone",
+				"controllers/zoneController.js"
+			],
+			[
+				"geocontroll",
+				"controllers/geoController.js"
+			],
+			[
+				"secretcode",
+				"controllers/secretCodeController.js"
+			],
+			[
+				"graph",
+				"parse-mock/js/graphs.js"
+			],
+			[
+				"main",
+				"parse-mock/styles/main.css"
+			],
+			[
+				"styl",
+				"parse-mock/styles/main.css"
+			],
+			[
+				"style.css",
+				"parse-mock/styles/main.css"
+			],
+			[
+				"graphs",
+				"parse-mock/js/graphs.js"
+			],
+			[
+				"index.html",
+				"maps/index.html"
+			],
+			[
+				"gmaps",
+				"valet-analytics/pages/gmaps_old.html"
+			],
+			[
+				"stamen",
+				"valet-analytics/pages/stamen.html"
+			],
+			[
+				"parkinglocs",
+				"valet-analytics/json/parkingLocs.json"
+			],
+			[
+				"mycv.tex",
+				"my cv.tex"
+			],
+			[
+				"autom",
+				"cv automatic.tex"
+			],
+			[
+				"bay.json",
+				"bay_area/bay.json"
+			],
+			[
+				"bay_area",
+				"bay_area/bay.geojson"
+			],
+			[
+				"scripts",
+				"scripts"
+			],
+			[
+				"zillow",
+				"zillow/zillow_hoods.geojson"
+			],
+			[
+				"parser",
+				"json/parser.js"
+			],
+			[
+				"parkin",
+				"parking/parking.json"
+			],
+			[
+				"parking.json",
+				"parking/parking.geojson"
+			],
+			[
+				"parking",
+				"parking/parking.json"
+			],
+			[
+				"script",
+				"scripts"
+			],
+			[
+				"scat",
+				"scripts/scatter.js"
+			],
+			[
+				"bar",
+				"scripts/bar.js"
+			],
+			[
+				"scatter",
+				"scripts/scatter.js"
+			],
+			[
+				"bar.js",
+				"scripts/bar.js"
+			],
+			[
+				"slid",
+				"libraries/angular-slider.js"
+			],
+			[
+				"contr",
+				"scripts/controller.js"
+			],
+			[
+				"scatt",
+				"scripts/scatter.js"
+			],
+			[
+				"style",
+				"styles/style.css"
+			],
+			[
+				"ifnra",
+				"scripts/infrastructure.js"
+			],
+			[
+				"infrastr",
+				"scripts/infrastructure.js"
+			],
+			[
+				"fra",
+				"scripts/infrastructure.js"
+			],
+			[
+				"car",
+				"scripts/car.js"
+			],
+			[
+				"draw",
+				"scripts/draw.js"
+			],
+			[
+				"car.js",
+				"scripts/car.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 233.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -40,58 +40,36 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "/home/lewis/github/sf-maps/pages/index.html",
 			"settings":
 			{
-				"buffer_size": 4550,
+				"buffer_size": 3042,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scripts/bar.js",
+			"file": "/home/lewis/github/sf-maps/json/exampleresponse.json",
 			"settings":
 			{
-				"buffer_size": 3490,
-				"line_ending": "Unix"
+				"buffer_size": 173605,
+				"line_ending": "Unix",
+				"name": "{\"STATUS\":\"SUCCESS\",\"NUM_RECORDS\":\"955\",\"MESSAGE\":"
 			}
 		},
 		{
-			"file": "libraries/angular-slider.js",
+			"file": "/home/lewis/github/sf-maps/json/parser.js",
 			"settings":
 			{
-				"buffer_size": 5755,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/infrastructure.js",
-			"settings":
-			{
-				"buffer_size": 4773,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/scatter.js",
-			"settings":
-			{
-				"buffer_size": 2349,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/controller.js",
-			"settings":
-			{
-				"buffer_size": 4967,
-				"line_ending": "Unix"
+				"buffer_size": 1205,
+				"line_ending": "Unix",
+				"name": "var fs = require('fs');"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 264.0,
+		"height": 306.0,
 		"selected_items":
 		[
 			[
@@ -119,7 +97,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 575.0
+		"width": 530.0
 	},
 	"console":
 	{
@@ -140,7 +118,11 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/Downloads/stops.kml",
+		"/home/lewis/github/sf-maps/parking/parking.json",
+		"/home/lewis/github/sf-maps/parking/parking.geojson",
+		"/home/lewis/github/sf-maps/scripts",
+		"/home/lewis/github/sf-maps/pages/index.html",
+		"/home/lewis/github/sf-maps/libs/plotter.js",
 		"/home/lewis/github/sf-maps/neighborhoods/neighborhoods.json",
 		"/home/lewis/github/sf-maps/counties.json",
 		"/home/lewis/Desktop/luxe todo",
@@ -195,6 +177,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"name",
+			"properties",
+			"name",
+			"arterials",
 			"matero",
 			"gedit",
 			"'check",
@@ -318,11 +304,7 @@
 			"var s =",
 			"initpos",
 			"initramp",
-			"choose()",
-			"choose",
-			"exititoppingng",
-			"carsarray",
-			"carsarra"
+			"choose()"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -350,190 +332,108 @@
 		"whole_word": false,
 		"wrap": true
 	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/home/lewis/github/sf-maps"
+		}
+	],
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "/home/lewis/github/sf-maps/pages/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4550,
+						"buffer_size": 3042,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								910,
-								910
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 135.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "scripts/bar.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3490,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3016,
-								3016
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 858.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "libraries/angular-slider.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5755,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								350,
-								350
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "scripts/infrastructure.js",
+					"buffer": 1,
+					"file": "/home/lewis/github/sf-maps/json/exampleresponse.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4773,
+						"buffer_size": 173605,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2280,
-								2280
+								326,
+								326
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"auto_name": "{\"STATUS\":\"SUCCESS\",\"NUM_RECORDS\":\"955\",\"MESSAGE\":",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2
 						},
 						"translation.x": 0.0,
-						"translation.y": 603.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "scripts/scatter.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2349,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1819,
-								1819
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 327.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "scripts/controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4967,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1498,
-								1498
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 707.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/lewis/github/sf-maps/json/parser.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								93,
+								93
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var fs = require('fs');",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -541,11 +441,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 21.0
+		"height": 25.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -574,7 +474,7 @@
 	{
 		"height": 0.0
 	},
-	"project": "mfd.sublime-project",
+	"project": "",
 	"replace":
 	{
 		"height": 64.0
@@ -585,6 +485,26 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"index",
+				"pages/index.html"
+			],
+			[
+				"parkin",
+				"parking/parking.json"
+			],
+			[
+				"parking.json",
+				"parking/parking.geojson"
+			],
+			[
+				"parking",
+				"parking/parking.json"
+			],
+			[
+				"script",
+				"scripts"
+			],
 			[
 				"infra",
 				"scripts/infrastructure.js"
@@ -611,10 +531,6 @@
 			],
 			[
 				"inde",
-				"index.html"
-			],
-			[
-				"index",
 				"index.html"
 			],
 			[
@@ -674,11 +590,11 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
@@ -695,7 +611,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 149.0,
+	"side_bar_width": 338.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

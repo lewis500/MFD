@@ -7,18 +7,17 @@ app.directive('infrastructure',
             bottom: 0,
             left: 0
         },
-            width = 500 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom,
+            width = 600 - margin.left - margin.right,
+            height = 600 - margin.top - margin.bottom,
             radius = (width - 100) / 2,
             center = {
                 x: width / 2,
                 y: height / 2
-            }
-
+            };
 
         var roadMaker = d3.svg.arc()
-            .innerRadius(radius - 20)
-            .outerRadius(radius + 20)
+            .innerRadius(radius - 30)
+            .outerRadius(radius + 30)
             .startAngle(0)
             .endAngle(2 * Math.PI);
 
@@ -30,7 +29,6 @@ app.directive('infrastructure',
             link: function(scope, el, attr) {
 
                 //draw all the basics
-
                 var svg = d3.select(el[0])
                     .append("svg")
                     .attr("width", width + margin.left + margin.right)
@@ -52,9 +50,8 @@ app.directive('infrastructure',
                 var rampG = road.selectAll("ramps")
                     .data(rampNumbers.map(function(d, i) {
                         return {
-                            num: Math.floor(i / 2),
-                            place: d,
-                            on: (i % 2 == 0) ? true : false
+                            num: i,
+                            place: d
                         }
                     }))
                     .enter()
@@ -64,16 +61,7 @@ app.directive('infrastructure',
                         var m = d.place / numPos * 360;
                         return "rotate(" + m + ") translate(" + [0, -radius] + ")"
                     })
-                    .attr("class", function(d) {
-                        return d.on ? "on" : "off";
-                    });
-
-                var rampSubG = rampG.append("g")
-                    .attr("transform", function(d, i) {
-                        return "rotate(" + (d.on ? -20 : 20) + ")"
-                    })
-
-                rampSubG.append("rect")
+                    .append("rect")
                     .attr({
                         width: 25,
                         height: 85,
@@ -85,27 +73,62 @@ app.directive('infrastructure',
                         opacity: .3
                     });
 
-                var gCar = road.append("g")
+                var gLabel = svg
+                    .append("g")
+                    .attr('transform', 'translate(' + center.x + ',' + (center.y - 25) + ')')
+
+                var rateLabel = gLabel
+                    .append("g")
+                    .attr("class", "rate-label")
+                    .append("text")
+                    .attr("text-anchor", "middle")
+
+
+                var numLabel = gLabel
+                    .append("g")
+                    .attr('transform', 'translate(' + 0 + ',' + (+30) + ')')
+                    .attr("class", "rate-label")
+                    .append("text")
+                    .attr("text-anchor", "middle")
+
+
+                var timeLabel = gLabel
+                    .append("g")
+                    .attr('transform', 'translate(' + 0 + ',' + (+60) + ')')
+                    .attr("class", "rate-label")
+                    .append("text")
+                    .attr("text-anchor", "middle")
+
+
+                var gCar = road
+                    .append("g")
                     .attr('class', 'g-cars');
 
-
+                //logic
                 scope.$on('update', function() {
-                    // if (scope.carsArray.length == 0) return;
 
-                    //JOIN
-                    var cars = gCar.selectAll('.car')
+                    gCar.selectAll('.car')
                         .data(scope.carsArray, function(d) {
                             return d.index;
                         })
-                        .transition().duration(scope.tickRate).ease('linear')
+                        .transition()
+                        .duration(scope.tickRate)
+                        .ease('linear')
                         .attr("transform", function(d) {
-                            return "rotate(" + d.s / numPos * 360 + ")";
+                            return "rotate(" + (d.s / numPos * 360 - 3) + ")";
                         });
+
+                    timeLabel.text(d3.format('.1f')(scope.elapsed) + " sec elapsed");
 
                 });
 
-                scope.$watch('carsArray.length', function(newVal) {
-                    if (newVal == 0) return;
+                scope.$on('avgUpdate', function() {
+                    rateLabel.text(d3.format('.2r')(scope.movAvg) + " exits/sec");
+                    numLabel.text(scope.carsArray.length + " cars on the road");
+
+                })
+
+                scope.$on('addOrExit', function() {
 
                     //JOIN
                     var cars = gCar.selectAll('.car')
@@ -117,17 +140,17 @@ app.directive('infrastructure',
                     cars.exit().remove();
 
                     //ENTER
-                    var newOne = cars.enter()
+                    cars.enter()
                         .append('g')
                         .attr("class", "car")
                         .attr("transform", function(d) {
-                            return "rotate(" + d.s / numPos * 360 + ")";
+                            return "rotate(" + (d.s / numPos * 360 - 3) + ")";
                         })
                         .append("g")
                         .call(sticker)
                         .attr({
                             class: "g-sticker",
-                            transform: "translate(8," + (-radius + 5) + ") scale(.3) rotate(180)",
+                            transform: "translate(0," + (-radius + -10) + ") scale(.22) rotate(0)",
                             fill: function(d) {
                                 return carColors(d.exitRamp);
                             }
