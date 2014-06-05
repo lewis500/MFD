@@ -1,22 +1,22 @@
 app.directive('barChart', function() {
+    var margin = {
+        top: 10,
+        right: 10,
+        bottom: 20,
+        left: 55
+    },
+        width = 400 - margin.left - margin.right,
+        height = 300 - margin.top - margin.bottom;
+
     return {
         restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
         link: function(scope, el, attr) {
-            var margin = {
-                top: 10,
-                right: 10,
-                bottom: 20,
-                left: 55
-            },
-                width = 400 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
 
             var svg = d3.select(el[0]).append('svg')
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)
                 .append('g')
                 .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-
 
             var x = d3.scale.ordinal()
                 .rangeRoundBands([0, width], .1);
@@ -37,7 +37,7 @@ app.directive('barChart', function() {
 
             x.domain([0, 1, 2, 3]);
 
-            y.domain([0,100]);
+            y.domain([0, 100]);
 
             var gXAxis = svg.append("g")
                 .attr("class", "x axis")
@@ -48,7 +48,7 @@ app.directive('barChart', function() {
                 .attr("class", "y axis")
                 .call(yAxis)
 
-              gYAxis.append("text")
+            gYAxis.append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", -45)
                 .attr("dy", ".71em")
@@ -71,15 +71,24 @@ app.directive('barChart', function() {
                 })
                 .attr('fill', function(d, i) {
                     return carColors(i);
-                })
+                });
 
-            scope.$on('addOrExit', function() {
-                var data = scope.exitArray;
+            scope.$watch(function() {
+                return stops.reduce(function(a, b) {
+                    return a + b.getExited().length;
+                }, 0);
+            }, updater);
+
+            function updater() {
+                var data = stops
+                    .map(function(d) {
+                        return d.getExited().length;
+                    });
 
                 gYAxis.transition().call(yAxis);
 
                 bar.data(data)
-		                .transition().duration(100)
+                    .transition().duration(100)
                     .attr("y", function(d) {
                         return y(d);
                     })
@@ -88,7 +97,7 @@ app.directive('barChart', function() {
                     });
 
 
-            });
+            };
 
         }
     };
