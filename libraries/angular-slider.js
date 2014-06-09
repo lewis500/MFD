@@ -13,12 +13,23 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                         return (decimals) ? parseFloat(n) : parseInt(n);
                     };
 
+
+                    // .addClass(this.orientation)
+                    // .css('font-size', this.element.css('font-size'));
+
+
                     var options = angular.extend(scope.$eval(attrs.uiSlider) || {}, uiSliderConfig);
                     // Object holding range values
                     var prevRangeValues = {
                         min: null,
                         max: null
                     };
+
+
+                        // elm.wrap('<div class="ui-slider-wrapper ui-widget"></div>')
+                        //     .before('<div class="ui-slider-labels"></div>')
+                        //     .parent()
+                        //     .addClass(options.orientation)
 
                     var init = function() {
                         // When ngModel is assigned an array of values then range is expected to be true.
@@ -27,7 +38,9 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                             console.warn('Change your range option of ui-slider. When assigning ngModel an array of values then the range option should be set to true.');
                             options.range = true;
                         }
+
                         elm.slider(options);
+                        elm.labeledslider(options);
 
                         init = angular.noop;
                     };
@@ -42,6 +55,7 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                             if ( !! newVal) {
                                 init();
                                 elm.slider('option', property, parseNumber(newVal, useDecimals));
+                                elm.labeledslider('option', property, parseNumber(newVal, useDecimals));
                             }
                         });
                     });
@@ -63,7 +77,6 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
 
                     // Update model value from slider
                     elm.bind('slide', function(event, ui) {
-                        console.log('hello')
                         ngModel.$setViewValue(ui.values || ui.value);
                         scope.$apply();
                     });

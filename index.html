@@ -23,7 +23,8 @@
 
 <!-- ============== BODY =================== -->
 
-    <ng-include src="'header.html'"></ng-include>
+<ng-include src="'header.html'"></ng-include>
+
 <body ng-app="mainApp">
 
     <div class="container" ng-controller="mainCtrl">
@@ -38,12 +39,13 @@
                 <h4>Speed</h4>
                 <div class="slider" ui-slider="{orientation: 'horizontal'}" min="10" max="100" step="20" ng-model="tickPace"></div>
                 <h4>Ramp Frequency</h4>
-                <div class="slider" ui-slider="{orientation: 'horizontal'}" min="100" max="1000" step="100" ng-model="addPace"></div>
+                <div class="slider" ui-slider="{orientation: 'horizontal'}" min="5" max="50" step="5" ng-model="addPace"></div>
                 <h4>Trip Length</h4>
                 <div class="slider" ui-slider="{orientation: 'horizontal'}" min="50" max="75" step="5" ng-model="tripLength"></div>
             </div>
         </div>
     </div>
+
 
 </body>
 
@@ -52,11 +54,17 @@
 <script src="libraries/d3.v3.min.js" charset="utf-8"></script>
 <script src="libraries/sticker.js"></script>
 
-
-
 <!-- ============== SCRIPTS =================== -->
 <script type="text/javascript">
 var app = angular.module('mainApp', ['ui.bootstrap', 'ui.slider']);
+
+app.run(['$rootScope',
+    function($rootScope) {
+        window.onresize = function() { // Browser onresize event
+            $rootScope.$broadcast('windowResize');
+        };
+    }
+]);
 </script>
 <script src="scripts/dataService.js"></script>
 <script src="scripts/objects.js"></script>

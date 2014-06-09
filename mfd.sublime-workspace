@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"geta",
+				"getAvgKeeper"
+			],
+			[
+				"avg",
+				"avgKeeper"
+			],
+			[
 				"range",
 				"rangeSlider"
 			],
@@ -56,34 +64,26 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/objects.js",
-			"settings":
-			{
-				"buffer_size": 897,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "styles/style.css",
-			"settings":
-			{
-				"buffer_size": 843,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/controller.js",
-			"settings":
-			{
-				"buffer_size": 1493,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 4599,
+				"buffer_size": 2800,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/lewis/Desktop/MFDTodo",
+			"settings":
+			{
+				"buffer_size": 278,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/objects.js",
+			"settings":
+			{
+				"buffer_size": 1267,
 				"line_ending": "Unix"
 			}
 		},
@@ -91,7 +91,15 @@
 			"file": "scripts/dataService.js",
 			"settings":
 			{
-				"buffer_size": 4451,
+				"buffer_size": 4550,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/bar.js",
+			"settings":
+			{
+				"buffer_size": 3011,
 				"line_ending": "Unix"
 			}
 		}
@@ -99,7 +107,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 264.0,
+		"height": 285.0,
 		"selected_items":
 		[
 			[
@@ -131,7 +139,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 575.0
+		"width": 428.0
 	},
 	"console":
 	{
@@ -152,54 +160,62 @@
 	},
 	"file_history":
 	[
+		"/home/lewis/Desktop/bottleneck todo",
+		"/home/lewis/Desktop/luxe todo",
+		"/home/lewis/Desktop/todo housing.txt",
+		"/home/lewis/github/MFD/scripts/controller.js",
+		"/home/lewis/github/MFD/index.html",
+		"/home/lewis/github/MFD/libraries/buttons.js",
+		"/home/lewis/github/MFD/scripts/bus.js",
+		"/home/lewis/github/MFD/scripts/bar.js",
+		"/home/lewis/github/MFD/libraries/rangeSlider/jquery-ui-custom.js",
+		"/home/lewis/github/MFD/scripts/dataService.js",
+		"/home/lewis/github/MFD/libraries/angular-slider.js",
+		"/home/lewis/github/MFD/scripts/objects.js",
+		"/home/lewis/github/MFD/scripts/infrastructure.js",
+		"/home/lewis/Desktop/MFDTodo",
+		"/home/lewis/Desktop/tracker todo",
+		"/home/lewis/github/MFD/libraries/rangeSlider/GPL-License.txt",
+		"/home/lewis/github/MFD/libraries/rangeSlider/demo/editSliderDemo.js",
+		"/home/lewis/github/MFD/README.md",
+		"/home/lewis/github/MFD/ruler.js",
+		"/home/lewis/github/MFD/scripts/car.js",
+		"/home/lewis/github/MFD/libraries/slider.js",
+		"/home/lewis/github/MFD/styles/style.css",
+		"/home/lewis/github/MFD/header.html",
+		"/home/lewis/github/MFD/libraries/angular.min.js",
+		"/home/lewis/github/MFD/slider.js",
+		"/home/lewis/github/MFD/libraries/rangeSlider/demo/style.css",
+		"/home/lewis/github/MFD/styles/slider2.css",
+		"/home/lewis/github/MFD/styles/car2.svg",
+		"/home/lewis/github/MFD/styles/slider.css",
 		"/home/lewis/github/MFD/libraries/rangeSlider/demo/index.html",
 		"/home/lewis/github/MFD/LICENSE",
-		"/home/lewis/Desktop/luxe todo",
 		"/home/lewis/github/MFD/rangeSlider.js",
-		"/home/lewis/github/MFD/ruler.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/css/iThing.css",
 		"/home/lewis/github/MFD/styles/jquery-ui.css",
-		"/home/lewis/github/MFD/libraries/angular-slider.js",
-		"/home/lewis/github/MFD/index.html",
-		"/home/lewis/github/MFD/styles/style.css",
 		"/home/lewis/github/MFD/libraries/jquery.min.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/jQRangeSlider-min.js",
 		"/home/lewis/github/MFD/jqui.js",
-		"/home/lewis/github/MFD/scripts/objects.js",
 		"/home/lewis/github/bus-bunching/styles/main.css",
 		"/home/lewis/github/MFD/.gitignore",
 		"/home/lewis/Desktop/simulation mfd todo",
-		"/home/lewis/github/MFD/scripts/bar.js",
-		"/home/lewis/github/MFD/scripts/infrastructure.js",
 		"/home/lewis/.cache/.fr-aZtIPl/jQRangeSlider-5.7.0/demo/sliderDemo.js",
-		"/home/lewis/Desktop/MFDTodo",
-		"/home/lewis/github/MFD/scripts/dataService.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/jQAllRangeSliders-min.js",
-		"/home/lewis/github/MFD/README.md",
 		"/home/lewis/github/bus-bunching/todo.txt",
-		"/home/lewis/github/MFD/scripts/controller.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/jQEditRangeSlider-min.js",
-		"/home/lewis/Desktop/tracker todo",
 		"/home/lewis/github/MFD/scripts/draw.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/singleSlider.js",
-		"/home/lewis/github/MFD/libraries/rangeSlider/jquery-ui-custom.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/demo/sliderDemo.js",
 		"/home/lewis/github/bus-bunching/libraries/slider.js",
-		"/home/lewis/github/MFD/styles/slider.css",
-		"/home/lewis/github/MFD/libraries/slider.js",
-		"/home/lewis/github/MFD/slider.js",
 		"/home/lewis/github/MFD/scripts/pages/index.html",
 		"/home/lewis/github/bus-bunching/scripts/main.js",
-		"/home/lewis/Desktop/bottleneck todo",
-		"/home/lewis/github/MFD/scripts/bus.js",
 		"/home/lewis/github/bus-bunching/index.html",
 		"/home/lewis/.config/sublime-text-3/Packages/User/UnicodeMath.sublime-settings",
 		"/home/lewis/github/MFD/scripts/main.js",
-		"/home/lewis/github/MFD/scripts/car.js",
 		"/home/lewis/github/MFD/styles/svg.html",
 		"/home/lewis/github/MFD/styles/svg",
 		"/home/lewis/github/MFD/scripts/scatter.js",
-		"/home/lewis/github/MFD/libraries/buttons.js",
 		"/home/lewis/Downloads/stops.kml",
 		"/home/lewis/github/sf-maps/neighborhoods/neighborhoods.json",
 		"/home/lewis/github/sf-maps/counties.json",
@@ -214,7 +230,6 @@
 		"/home/lewis/github/MFD/libraries/sticker.js",
 		"/home/lewis/github/MFD/mfd.sublime-project",
 		"/home/lewis/github/MFD/todo.txt",
-		"/home/lewis/github/MFD/libraries/angular.min.js",
 		"/home/lewis/github/MFD/indexprev.html",
 		"/home/lewis/github/MFD/scripts/carold.js",
 		"/home/lewis/github/MFD/scripts/car2.js",
@@ -237,6 +252,42 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"100",
+			"200",
+			"1004",
+			"100",
+			"1000",
+			"carcolors",
+			"carcolo",
+			"domain",
+			"carcolor",
+			"color",
+			"carcolors",
+			"color",
+			"carcolor",
+			"color",
+			".slider",
+			"$render",
+			"LABEL",
+			"slide",
+			"event",
+			"slider",
+			"ui.slider",
+			".slider",
+			"options",
+			".labeledslider",
+			".slider",
+			"ngmode",
+			"bootstrap",
+			"labeledslider",
+			"observe",
+			"width",
+			"sliders",
+			"width",
+			"slider",
+			"elm.slider(",
+			"ruler",
+			"600px",
 			"border",
 			"state-default",
 			"handle",
@@ -328,43 +379,7 @@
 			"Car(",
 			"sticker",
 			"Car(",
-			"howlong",
-			"isempty",
-			"Car(",
-			"newcar",
-			"addCar",
-			"timeout",
-			"Bus",
-			"colorkey",
-			"carcolors",
-			"bus",
-			"Bus",
-			"matero",
-			"gedit",
-			"'check",
-			"8",
-			"200",
-			"on",
-			"watch",
-			"exitarray",
-			"update",
-			"numcars",
-			"interval",
-			"update",
-			"interval",
-			"start",
-			"adder",
-			"addrate",
-			"rampnumber",
-			"num",
-			"rampnumber",
-			"break",
-			"addrate",
-			"tickrate",
-			"pause",
-			"20",
-			"strokef",
-			"stroke"
+			"howlong"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -372,6 +387,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			".slider",
+			"slider",
+			"elm.labeledslider(",
+			"400px",
 			"slider",
 			"elm.rangeSlider",
 			"tickPace",
@@ -407,29 +426,30 @@
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/objects.js",
+					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 897,
+						"buffer_size": 2800,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								343,
-								343
+								1289,
+								1289
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"history_list_is_closing": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 247.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -437,85 +457,24 @@
 				},
 				{
 					"buffer": 1,
-					"file": "styles/style.css",
+					"file": "/home/lewis/Desktop/MFDTodo",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 843,
+						"buffer_size": 278,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								531,
-								531
+								196,
+								196
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 273.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scripts/controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1493,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1493,
-								1493
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4599,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								253,
-								253
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -525,20 +484,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "scripts/dataService.js",
+					"buffer": 2,
+					"file": "scripts/objects.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4451,
+						"buffer_size": 1267,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4451,
-								4451
+								199,
+								199
 							]
 						],
 						"settings":
@@ -547,11 +506,79 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
+						"translation.x": -0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "scripts/dataService.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4550,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4350,
+								4350
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2625.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "scripts/bar.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3011,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2416,
+								2416
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 676.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -574,11 +601,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -604,12 +638,128 @@
 		"selected_items":
 		[
 			[
+				"button",
+				"MFD/libraries/buttons.js"
+			],
+			[
 				"inde",
 				"MFD/index.html"
 			],
 			[
+				"bar.js",
+				"MFD/scripts/bar.js"
+			],
+			[
+				"obj",
+				"MFD/scripts/objects.js"
+			],
+			[
+				"controll",
+				"MFD/scripts/controller.js"
+			],
+			[
+				"mfd",
+				"Desktop/MFDTodo"
+			],
+			[
+				"object",
+				"MFD/scripts/objects.js"
+			],
+			[
+				"contro",
+				"MFD/scripts/controller.js"
+			],
+			[
+				"datas",
+				"MFD/scripts/dataService.js"
+			],
+			[
+				"control",
+				"MFD/scripts/controller.js"
+			],
+			[
+				"todo",
+				"Desktop/todo housing.txt"
+			],
+			[
+				"infras",
+				"MFD/scripts/infrastructure.js"
+			],
+			[
+				"dataser",
+				"MFD/scripts/dataService.js"
+			],
+			[
+				"infra",
+				"MFD/scripts/infrastructure.js"
+			],
+			[
+				"bar",
+				"MFD/scripts/bar.js"
+			],
+			[
+				"slider.js",
+				"MFD/libraries/slider.js"
+			],
+			[
+				"angular-s",
+				"MFD/libraries/angular-slider.js"
+			],
+			[
+				"slider",
+				"MFD/libraries/angular-slider.js"
+			],
+			[
 				"style",
 				"MFD/styles/style.css"
+			],
+			[
+				"header",
+				"MFD/header.html"
+			],
+			[
+				"style.css",
+				"MFD/styles/style.css"
+			],
+			[
+				"slider.css",
+				"MFD/libraries/rangeSlider/demo/style.css"
+			],
+			[
+				"angular",
+				"MFD/libraries/angular-slider.js"
+			],
+			[
+				"slider2.css",
+				"MFD/styles/slider2.css"
+			],
+			[
+				"style2",
+				"MFD/styles/car2.svg"
+			],
+			[
+				"slider2",
+				"MFD/styles/slider2.css"
+			],
+			[
+				"styl",
+				"MFD/styles/style.css"
+			],
+			[
+				"ind",
+				"MFD/index.html"
+			],
+			[
+				"angularslider",
+				"MFD/libraries/angular-slider.js"
+			],
+			[
+				"ruler.js",
+				"MFD/ruler.js"
+			],
+			[
+				"angulars",
+				"MFD/libraries/angular-slider.js"
 			],
 			[
 				"data",
@@ -618,10 +768,6 @@
 			[
 				"contr",
 				"MFD/scripts/controller.js"
-			],
-			[
-				"obj",
-				"MFD/scripts/objects.js"
 			],
 			[
 				"jquery",
@@ -656,48 +802,12 @@
 				"MFD/ruler.js"
 			],
 			[
-				"mfd",
-				"Desktop/MFDTodo"
-			],
-			[
-				"todo",
-				"bus-bunching/todo.txt"
-			],
-			[
-				"infra",
-				"MFD/scripts/infrastructure.js"
-			],
-			[
 				"ifnra",
 				"MFD/scripts/infrastructure.js"
 			],
 			[
 				"obje",
 				"MFD/scripts/objects.js"
-			],
-			[
-				"object",
-				"MFD/scripts/objects.js"
-			],
-			[
-				"controll",
-				"MFD/scripts/controller.js"
-			],
-			[
-				"bar.js",
-				"MFD/scripts/bar.js"
-			],
-			[
-				"slider",
-				"MFD/libraries/angular-slider.js"
-			],
-			[
-				"ind",
-				"MFD/index.html"
-			],
-			[
-				"bar",
-				"MFD/scripts/bar.js"
 			],
 			[
 				"objects",
@@ -740,19 +850,11 @@
 				"libraries/angular-slider.js"
 			],
 			[
-				"style.css",
-				"styles/style.css"
-			],
-			[
 				"scatt",
 				"scripts/scatter.js"
 			],
 			[
 				"fra",
-				"scripts/infrastructure.js"
-			],
-			[
-				"infras",
 				"scripts/infrastructure.js"
 			],
 			[
@@ -797,7 +899,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 208.0,
+	"side_bar_width": 212.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
