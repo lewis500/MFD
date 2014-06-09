@@ -1,107 +1,107 @@
 /**
- * Theme for jQRangeSlider
+ * Theme for jQslider
  * Inspired by http://cssdeck.com/item/381/itunes-10-storage-bar
  *        and http://cssdeck.com/item/276/pure-css-arrow-with-border-tooltip
  */
 
-.ui-rangeSlider{
+.ui-slider{
   height: 30px;
   padding-top: 40px;
 }
 
-.ui-rangeSlider,
-.ui-rangeSlider-container,
-.ui-rangeSlider-arrow{
+.ui-slider,
+.ui-slider-container,
+.ui-slider-arrow{
   -webkit-box-sizing:content-box;
      -moz-box-sizing:content-box;
           box-sizing:content-box;
 }
 
-.ui-rangeSlider-withArrows .ui-rangeSlider-container{
+.ui-slider-withArrows .ui-slider-container{
   margin: 0 15px;
 }
 
-.ui-rangeSlider-withArrows .ui-rangeSlider-container,
-.ui-rangeSlider-noArrow .ui-rangeSlider-container,
-.ui-rangeSlider-arrow{
+.ui-slider-withArrows .ui-slider-container,
+.ui-slider-noArrow .ui-slider-container,
+.ui-slider-arrow{
   -webkit-box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.5);
      -moz-box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.5);
           box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.5);
 }
 
-.ui-rangeSlider-disabled.ui-rangeSlider-withArrows .ui-rangeSlider-container,
-.ui-rangeSlider-disabled.ui-rangeSlider-noArrow .ui-rangeSlider-container,
-.ui-rangeSlider-disabled .ui-rangeSlider-arrow{
+.ui-slider-disabled.ui-slider-withArrows .ui-slider-container,
+.ui-slider-disabled.ui-slider-noArrow .ui-slider-container,
+.ui-slider-disabled .ui-slider-arrow{
   -webkit-box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.3);
      -moz-box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.3);
           box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.3);
 }
 
-.ui-rangeSlider-noArrow .ui-rangeSlider-container{
+.ui-slider-noArrow .ui-slider-container{
   -moz-border-radius: 4px;
   border-radius: 4px;
   border-left: solid 1px #515862;
   border-right: solid 1px #515862;
 }
 
-.ui-rangeSlider-disabled.ui-rangeSlider-noArrow .ui-rangeSlider-container{
+.ui-slider-disabled.ui-slider-noArrow .ui-slider-container{
   border-color: #8490a3;
 }
 
-.ui-rangeSlider-container,
-.ui-rangeSlider-arrow{
+.ui-slider-container,
+.ui-slider-arrow{
  	height: 30px;
 
   border-top: solid 1px #232a32;
   border-bottom: solid 1px #6a7179;
 }
 
-.ui-rangeSlider-disabled .ui-rangeSlider-container,
-.ui-rangeSlider-disabled .ui-rangeSlider-arrow{
+.ui-slider-disabled .ui-slider-container,
+.ui-slider-disabled .ui-slider-arrow{
   border-top-color: #49576b;
   border-bottom-color: #9ca7b3;
 }
 
-.ui-rangeSlider-container,
-.ui-rangeSlider-arrow,
-.ui-rangeSlider-label{
+.ui-slider-container,
+.ui-slider-arrow,
+.ui-slider-label{
   background: #67707F;
   background: -moz-linear-gradient(top, #67707F 0%, #888DA0 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#67707F), color-stop(100%,#888DA0));
 }
 
-.ui-rangeSlider-disabled .ui-rangeSlider-container,
-.ui-rangeSlider-disabled .ui-rangeSlider-arrow,
-.ui-rangeSlider-disabled .ui-rangeSlider-label{
+.ui-slider-disabled .ui-slider-container,
+.ui-slider-disabled .ui-slider-arrow,
+.ui-slider-disabled .ui-slider-label{
   background: #95a4bd;
   background: -moz-linear-gradient(top, #95a4bd 0%, #b2bbd8 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#95a4bd), color-stop(100%,#b2bbd8));
 }
 
-.ui-rangeSlider-arrow{
+.ui-slider-arrow{
   width:14px;
   cursor:pointer;
 }
 
-.ui-rangeSlider-leftArrow{
+.ui-slider-leftArrow{
   border-radius:4px 0 0 4px;
   border-left: solid 1px #515862;
 }
 
-.ui-rangeSlider-disabled .ui-rangeSlider-leftArrow{
+.ui-slider-disabled .ui-slider-leftArrow{
  border-left-color: #8792a2; 
 }
 
-.ui-rangeSlider-rightArrow{
+.ui-slider-rightArrow{
   border-radius:0 4px 4px 0;
   border-right: solid 1px #515862;
 }
 
-.ui-rangeSlider-disabled .ui-rangeSlider-rightArrow{
+.ui-slider-disabled .ui-slider-rightArrow{
  border-right-color: #8792a2; 
 }
 
-.ui-rangeSlider-arrow-inner{
+.ui-slider-arrow-inner{
   position: absolute;
   top: 50%;
   border: 10px solid transparent;
@@ -111,44 +111,44 @@
   margin-top: -10px;
 }
 
-.ui-rangeSlider-leftArrow .ui-rangeSlider-arrow-inner{
+.ui-slider-leftArrow .ui-slider-arrow-inner{
   border-right:10px solid #a4a8b7;
   left: 0;
   margin-left: -8px;
 }
 
-.ui-rangeSlider-leftArrow:hover .ui-rangeSlider-arrow-inner{
+.ui-slider-leftArrow:hover .ui-slider-arrow-inner{
   border-right:10px solid #b3b6c2;
 }
 
-.ui-rangeSlider-disabled .ui-rangeSlider-leftArrow .ui-rangeSlider-arrow-inner,
-.ui-rangeSlider-disabled .ui-rangeSlider-leftArrow:hover .ui-rangeSlider-arrow-inner{
+.ui-slider-disabled .ui-slider-leftArrow .ui-slider-arrow-inner,
+.ui-slider-disabled .ui-slider-leftArrow:hover .ui-slider-arrow-inner{
   border-right-color: #bbc0cf;
 }
 
-.ui-rangeSlider-rightArrow .ui-rangeSlider-arrow-inner{
+.ui-slider-rightArrow .ui-slider-arrow-inner{
   border-left:10px solid #a4a8b7;
   right: 0;
   margin-right: -8px;
 }
 
-.ui-rangeSlider-rightArrow:hover .ui-rangeSlider-arrow-inner{
+.ui-slider-rightArrow:hover .ui-slider-arrow-inner{
   border-left:10px solid #b3b6c2;
 }
 
-.ui-rangeSlider-disabled .ui-rangeSlider-rightArrow .ui-rangeSlider-arrow-inner,
-.ui-rangeSlider-disabled .ui-rangeSlider-rightArrow:hover .ui-rangeSlider-arrow-inner{
+.ui-slider-disabled .ui-slider-rightArrow .ui-slider-arrow-inner,
+.ui-slider-disabled .ui-slider-rightArrow:hover .ui-slider-arrow-inner{
   border-left-color: #bbc0cf;
 }
 
-.ui-rangeSlider-innerBar{
+.ui-slider-innerBar{
   width: 110%;
   height: 100%;
   left: -10px;
   overflow: hidden;
 }
 
-.ui-rangeSlider-bar{
+.ui-slider-bar{
 	background: #68a1d6;
   height: 29px;
   margin:1px 0;
@@ -163,7 +163,7 @@
           box-shadow: inset 0 2px 6px RGBA(0,0,0,0.5);
 }
 
-.ui-rangeSlider-disabled .ui-rangeSlider-bar{
+.ui-slider-disabled .ui-slider-bar{
   background: #93aeca;
 
   -webkit-box-shadow: inset 0 2px 6px RGBA(0,0,0,0.3);
@@ -171,14 +171,14 @@
           box-shadow: inset 0 2px 6px RGBA(0,0,0,0.3);
 }
 
-.ui-rangeSlider-handle{
+.ui-slider.ui-slider-handle{
 	width:10px;
-	height:30px;
-	background: transparent;
+	height:50px;
+	/*background: transparent;*/
 	cursor:col-resize;
 }
 
-.ui-rangeSlider-label{
+.ui-slider-label{
   padding: 5px 10px;
   bottom:40px;
 
@@ -195,7 +195,7 @@
   cursor:col-resize;
 }
 
-.ui-rangeSlider-label-inner{
+.ui-slider-label-inner{
   position: absolute;
   top: 100%;
   left: 50%;
@@ -208,17 +208,17 @@
   border-top: 10px solid #888DA0;
 }
 
-.ui-rangeSlider-disabled .ui-rangeSlider-label-inner{
+.ui-slider-disabled .ui-slider-label-inner{
   border-top-color: #b2bbd8; 
 }
 
-.ui-editRangeSlider-inputValue{
+.ui-editslider-inputValue{
   width:2em;
   text-align:center;
   font-size:15px;
 }
 
-.ui-rangeSlider .ui-ruler-scale{
+.ui-slider .ui-ruler-scale{
   position:absolute;
   top:0;
   left:0;
@@ -226,11 +226,11 @@
   right:0;
 }
 
-.ui-rangeSlider .ui-ruler-tick { 
+.ui-slider .ui-ruler-tick { 
   float: left; 
 }
 
-.ui-rangeSlider .ui-ruler-scale0 .ui-ruler-tick-inner{
+.ui-slider .ui-ruler-scale0 .ui-ruler-tick-inner{
   color:white;
   margin-top:1px;
   border-left: 1px solid white;
@@ -239,12 +239,12 @@
   position:relative;
 }
 
-.ui-rangeSlider .ui-ruler-scale0 .ui-ruler-tick-label{
+.ui-slider .ui-ruler-scale0 .ui-ruler-tick-label{
   position:absolute;
   bottom: 6px;
 }
 
-.ui-rangeSlider .ui-ruler-scale1 .ui-ruler-tick-inner{
+.ui-slider .ui-ruler-scale1 .ui-ruler-tick-inner{
   border-left:1px solid white;
   margin-top: 25px;
   height: 5px;

@@ -6,8 +6,8 @@ app.directive('infrastructure', function() {
         bottom: 0,
         left: 0
     },
-        width = 600 - margin.left - margin.right,
-        height = 600 - margin.top - margin.bottom,
+        width = 450 - margin.left - margin.right,
+        height = 450 - margin.top - margin.bottom,
         radius = (width - 100) / 2,
         center = {
             x: width / 2,
@@ -19,6 +19,8 @@ app.directive('infrastructure', function() {
         .outerRadius(radius + 30)
         .startAngle(0)
         .endAngle(2 * Math.PI);
+
+    var numPatches = 100;
 
     // Runs during compile
     return {
@@ -43,7 +45,7 @@ app.directive('infrastructure', function() {
                 });
 
             var rampG = road.selectAll("ramps")
-                .data(stops)
+                .data(scope.stops)
                 .enter()
                 .append("g")
                 .attr("class", "g-ramp")
@@ -56,7 +58,7 @@ app.directive('infrastructure', function() {
                     width: 25,
                     height: 85,
                     fill: function(d) {
-                        return carColors(numPatches / d.loc);
+                        return d.loc == 0 ? carColors(3) : carColors(numPatches / d.loc);
                     },
                     y: -15,
                     x: -12.5,
@@ -90,16 +92,16 @@ app.directive('infrastructure', function() {
                     .append('g')
                     .attr("class", "car")
                     .attr("transform", function(d) {
-                        return "rotate(" + (d.getLoc() / numPatches * 360 ) + ")";
+                        return "rotate(" + (d.getLoc() / numPatches * 360) + ")";
                     })
                     .append('rect')
                     .attr({
                         width: 10,
                         height: 10,
                         class: "g-sticker",
-                        transform: "translate(0," + (radius ) + ")",
+                        transform: "translate(0," + (radius) + ")",
                         fill: function(d) {
-                            return carColors(numPatches/d.dest);
+                            return d.dest == 0 ? carColors(3) : carColors(numPatches / d.dest);
                         }
                     });
 

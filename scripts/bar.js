@@ -70,17 +70,18 @@ app.directive('barChart', function() {
                     return height - y(d);
                 })
                 .attr('fill', function(d, i) {
-                    return carColors(i);
+                    // console.log(carColors(i))
+                    return carColors(i+1);
                 });
 
             scope.$watch(function() {
-                return stops.reduce(function(a, b) {
+                return scope.stops.reduce(function(a, b) {
                     return a + b.getExited().length;
                 }, 0);
             }, updater);
 
             function updater() {
-                var data = stops
+                var data = scope.stops
                     .map(function(d) {
                         return d.getExited().length;
                     });

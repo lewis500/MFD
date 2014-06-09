@@ -8,10 +8,6 @@
 		{
 			"follow_symlinks": true,
 			"path": "/home/lewis/Desktop"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "/home/lewis/github/bus-bunching"
 		}
 	]
 }

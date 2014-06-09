@@ -8,40 +8,39 @@
     <title>Simulation</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="styles/slider.css"> -->
 
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="styles/slider2.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="libraries/rangeSlider/css/iThing.css" type="text/css" />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="libraries/angular.min.js"></script>
     <script src="libraries/buttons.js"></script>
+    <script src="libraries/slider.js"></script>
     <script src="libraries/underscore.min.js"></script>
 </head>
 
 <!-- ============== BODY =================== -->
 
+    <ng-include src="'header.html'"></ng-include>
 <body ng-app="mainApp">
 
     <div class="container" ng-controller="mainCtrl">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
                 <div infrastructure></div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <button class="btn btn-med {{ paused ? 'btn-success' : 'btn-warning' }}" ng-click="paused = !paused">{{paused ? "Play" : "Pause"}}</button>
-                <div id="sliders">
-                    <h4>Speed</h4>
-                    <div class="slider" ui-slider="{orientation: 'horizontal', range: 'max'}" min="5" max="100" step="2.5" ng-model="tickPace"></div>
-                    <h4>Ramp Frequency</h4>
-                    <div class="slider" ui-slider="{orientation: 'horizontal', range: 'max'}" min="100" max="1500" step="25" ng-model="addPace"></div>
-                    <h4>Trip Length</h4>
-                    <div class="slider" ui-slider="{orientation: 'horizontal', range: 'max'}" min="50" max="75" step="5" ng-model="tripLength"></div>
-                    <div bar-chart></div>
-                    <div id="slider"></div>
-                </div>
+                <button class="btn btn-med btn-danger" ng-click="reset()">Reset</button>
+                <div bar-chart></div>
+                <h4>Speed</h4>
+                <div class="slider" ui-slider="{orientation: 'horizontal'}" min="10" max="100" step="20" ng-model="tickPace"></div>
+                <h4>Ramp Frequency</h4>
+                <div class="slider" ui-slider="{orientation: 'horizontal'}" min="100" max="1000" step="100" ng-model="addPace"></div>
+                <h4>Trip Length</h4>
+                <div class="slider" ui-slider="{orientation: 'horizontal'}" min="50" max="75" step="5" ng-model="tripLength"></div>
             </div>
         </div>
     </div>
@@ -54,15 +53,15 @@
 <script src="libraries/sticker.js"></script>
 
 
+
 <!-- ============== SCRIPTS =================== -->
 <script type="text/javascript">
 var app = angular.module('mainApp', ['ui.bootstrap', 'ui.slider']);
 </script>
-
+<script src="scripts/dataService.js"></script>
 <script src="scripts/objects.js"></script>
 <script src="scripts/controller.js"></script>
 <script src="scripts/infrastructure.js"></script>
-
 <script src="scripts/bar.js"></script>
 
 
