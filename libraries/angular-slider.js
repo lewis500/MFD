@@ -26,10 +26,10 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                     };
 
 
-                        // elm.wrap('<div class="ui-slider-wrapper ui-widget"></div>')
-                        //     .before('<div class="ui-slider-labels"></div>')
-                        //     .parent()
-                        //     .addClass(options.orientation)
+                    // elm.wrap('<div class="ui-slider-wrapper ui-widget"></div>')
+                    //     .before('<div class="ui-slider-labels"></div>')
+                    //     .parent()
+                    //     .addClass(options.orientation)
 
                     var init = function() {
                         // When ngModel is assigned an array of values then range is expected to be true.
@@ -54,8 +54,8 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                         attrs.$observe(property, function(newVal) {
                             if ( !! newVal) {
                                 init();
-                                elm.slider('option', property, parseNumber(newVal, useDecimals));
                                 elm.labeledslider('option', property, parseNumber(newVal, useDecimals));
+                                elm.slider('option', property, parseNumber(newVal, useDecimals));
                             }
                         });
                     });
@@ -116,6 +116,8 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
 
                         }
                         elm.slider(method, ngModel.$viewValue);
+                        elm.labeledslider(method, ngModel.$viewValue);
+
                     };
 
                     scope.$watch(attrs.ngModel, function() {
@@ -128,6 +130,8 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                         elm.slider('destroy');
                     }
                     elm.bind('$destroy', destroy);
+
+                    // (elm).trigger('slide')
                 };
             }
         };

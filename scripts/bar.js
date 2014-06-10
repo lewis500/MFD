@@ -5,7 +5,6 @@ app.directive('barChart', function() {
         bottom: 20,
         left: 55
     },
-        width = 400 - margin.left - margin.right,
         height = 300 - margin.top - margin.bottom;
 
     var x = d3.scale.ordinal()
