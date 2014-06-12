@@ -21,9 +21,13 @@ body{
 
 .slider{
 	/*margin: 10px 0px 10px 0px;*/
-	font-size: 13px;
+	font-size: 12px;
 }
 
 .ui-widget{
 	font-family: 'Open Sans', sans-serif;
+}
+
+.ui-slider-label-ticks{
+	font-size: 13px;
 }

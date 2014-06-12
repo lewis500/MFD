@@ -3,7 +3,7 @@ app.directive('barChart', function() {
         top: 10,
         right: 10,
         bottom: 20,
-        left: 55
+        left: 65
     },
         height = 300 - margin.top - margin.bottom;
 
@@ -13,7 +13,7 @@ app.directive('barChart', function() {
 
     var y = d3.scale.linear()
         .range([height, 0])
-        .domain([0, 100]);
+        .domain([0, 1000]);
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -45,8 +45,9 @@ app.directive('barChart', function() {
 
             gYAxis.append("text")
                 .attr("transform", "rotate(-90)")
-                .attr("y", -45)
+                .attr("y", -60)
                 .attr("dy", ".71em")
+                .attr("x",-70)
                 .style("text-anchor", "end")
                 .text("number exited");
 

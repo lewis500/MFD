@@ -5,15 +5,19 @@ var carColors = d3.scale.ordinal()
 app.controller('mainCtrl', ['$scope', 'dataService',
     function(s, DS) {
         s.tickPace = 50;
-        s.addPace = 20;
+        s.tickFreq = 110 - 50;
+        s.addFreq = 2.5;
         s.paused = true;
         s.tripLength = 60;
         s.cars = DS.getCars();
         s.stops = DS.getStops();
         s.reset = function reset() {
+            s.elapsed = 0;
             DS.reset();
+            eRate = rateFinder();
             tickFunction();
-        }
+        };
+        s.elapsed = 0;
 
         var preVal = s.tickPace;
 
@@ -21,27 +25,59 @@ app.controller('mainCtrl', ['$scope', 'dataService',
             DS.setTripLength(newVal);
         });
 
-        var adder = stepperGen(DS.add, s.addPace);
+        var adder = stepperGen(DS.add, 1 / s.addFreq * 100);
 
         var timer = runnerGen(tickFunction, s.tickPace);
 
+        var eRate = rateFinder();
+
         s.$watch('paused', timer.pause);
 
-        s.$watch('tickPace', function(newVal) {
-            timer.setPace(newVal);
+        s.$watch('tickFreq', function(newVal) {
+            s.tickPace = 110 - newVal;
+            timer.setPace(s.tickPace);
+            // s.$apply();
         });
 
-        s.$watch('addPace', function(newVal) {
-            adder.setPace(newVal);
+        s.$watch('addFreq', function(newVal) {
+            adder.setPace(1 / newVal * 100);
         });
+
 
         function tickFunction() {
             adder.step();
             DS.tick();
             s.cars = DS.getCars();
+            s.numCars = s.cars.length;
             s.stops = DS.getStops();
-            s.avg = DS.getAvgKeeper().getAvg();
-            s.$broadcast('tickEvent');
+            s.rate = eRate.increment(s.stops);
+            s.elapsed++;
+            s.$broadcast('tickEvent')
+            s.$apply();
+        }
+
+        function rateFinder() {
+            var data = [];
+
+            function increment(newStops) {
+                var sum = d3.sum(newStops, function(d) {
+                    return d.getExited().length;
+                });
+                data.push(sum);
+                return getRate();
+            }
+
+            var form = d3.format('.1f');
+
+            function getRate() {
+                var a = d3.min([100, data.length]);
+                var b = (data[data.length - 1] - data[data.length - a]) / a;
+                return form(b * 10);
+            }
+
+            return {
+                increment: increment
+            };
         }
 
     } //end of link function

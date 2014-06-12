@@ -5,7 +5,7 @@ app.factory('dataService', function() {
     reset();
 
     function reset() {
-        tEmpty = 5;
+        tEmpty = 4;
         numPatches = 100;
         numCars = 0;
 
