@@ -14,22 +14,12 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                     };
 
 
-                    // .addClass(this.orientation)
-                    // .css('font-size', this.element.css('font-size'));
-
-
                     var options = angular.extend(scope.$eval(attrs.uiSlider) || {}, uiSliderConfig);
                     // Object holding range values
                     var prevRangeValues = {
                         min: null,
                         max: null
                     };
-
-
-                    // elm.wrap('<div class="ui-slider-wrapper ui-widget"></div>')
-                    //     .before('<div class="ui-slider-labels"></div>')
-                    //     .parent()
-                    //     .addClass(options.orientation)
 
                     var init = function() {
                         // When ngModel is assigned an array of values then range is expected to be true.
@@ -68,7 +58,7 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                     scope.$watch(attrs.uiSlider, function(newVal) {
                         init();
                         elm.slider('option', newVal);
-                        // elm.labeledslider('option', newVal);
+                        elm.labeledslider('option', newVal);
                     }, true);
 
 

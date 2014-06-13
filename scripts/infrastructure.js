@@ -106,13 +106,13 @@ app.directive('infrastructure', function() {
                 }
 
                 d3.select(".g-text")
-                    .attr("transform", "translate(" + [center.x-75, center.y-25] + ")")
+                    .attr("transform", "translate(" + [center.x - 75, center.y - 25] + ")")
             }
 
             function updateCars() {
 
                 d3.select(".g-text").select("div")
-                    .html("<h5>Exit Rate: " + scope.rate + " (cars/10 sec)</h5><h5>Elapsed: " + scope.elapsed + " sec</h5><h5>Cars on the road: " + scope.numCars +"</h5>");
+                    .html("<h5>Exit Rate: " + scope.rate + " (cars/sec)</h5><h5>Elapsed: " + scope.elapsed + " sec</h5><h5>Cars on the road: " + scope.numCars + "</h5>");
 
                 var carsArray = gCar.selectAll('.g-car')
                     .data(scope.cars, function(d) {
@@ -135,17 +135,28 @@ app.directive('infrastructure', function() {
                     .attr("transform", function(d) {
                         return "rotate(" + (d.getLoc() / numPatches * 360) + ")";
                     })
+                    .append("g")
+                    .attr("transform", "translate(" + [0, radius] + ")")
                     .append('rect')
                     .attr("class", "car")
                     .attr({
                         width: 10,
                         height: 10,
                         // class: "g-sticker",
-                        transform: "translate(0," + radius + ")",
+                        transform: "scale(2)",
                         fill: function(d) {
                             return d.dest == 0 ? carColors(3) : carColors(numPatches / d.dest);
                         }
-                    });
+                    })
+                    // .transition()
+                    // .duration(scope.tickPace)
+                    // .ease('cubic')
+                    // .attr('transform', 'scale(.5)')
+                    // .delay(scope.tickPace)
+                    .transition()
+                    .duration(scope.tickPace*3)
+                    .ease('cubic')
+                    .attr('transform', 'scale(1)');
 
             } //end updateCars
 

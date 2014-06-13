@@ -5,7 +5,7 @@ var carColors = d3.scale.ordinal()
 app.controller('mainCtrl', ['$scope', 'dataService',
     function(s, DS) {
         s.tickPace = 50;
-        s.tickFreq = 110 - 50;
+        s.tickFreq = 105 - 50;
         s.addFreq = 2.5;
         s.paused = true;
         s.tripLength = 60;
@@ -27,15 +27,15 @@ app.controller('mainCtrl', ['$scope', 'dataService',
 
         var adder = stepperGen(DS.add, 1 / s.addFreq * 100);
 
-        var timer = runnerGen(tickFunction, s.tickPace);
+        s.timer = runnerGen(tickFunction, s.tickPace);
 
         var eRate = rateFinder();
 
-        s.$watch('paused', timer.pause);
+        // s.$watch('paused', timer.pause);
 
         s.$watch('tickFreq', function(newVal) {
-            s.tickPace = 110 - newVal;
-            timer.setPace(s.tickPace);
+            s.tickPace = 105 - newVal;
+            s.timer.setPace(s.tickPace);
             // s.$apply();
         });
 
@@ -53,7 +53,7 @@ app.controller('mainCtrl', ['$scope', 'dataService',
             s.rate = eRate.increment(s.stops);
             s.elapsed++;
             s.$broadcast('tickEvent')
-            s.$apply();
+            s.safeApply();
         }
 
         function rateFinder() {
@@ -79,6 +79,17 @@ app.controller('mainCtrl', ['$scope', 'dataService',
                 increment: increment
             };
         }
+
+        s.safeApply = function(fn) {
+            var phase = this.$root.$$phase;
+            if (phase == '$apply' || phase == '$digest') {
+                if (fn && (typeof(fn) === 'function')) {
+                    fn();
+                }
+            } else {
+                this.$apply(fn);
+            }
+        };
 
     } //end of link function
 ]); //end of

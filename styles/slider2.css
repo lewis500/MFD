@@ -33,10 +33,15 @@
 
 .ui-slider-wrapper.horizontal { height: 2.5em; }
 .horizontal .ui-slider-labels { left: 0; right: 0; top: 0.7em }
-.horizontal .ui-slider-label-ticks { width: 1.2em; height: .8em; text-align: center; border-left: 1px solid #999; }
+.horizontal .ui-slider-label-ticks { width: 1.2em; height: .4em; text-align: center; border-left: 1px solid #999; }
+.horizontal .ui-slider-label-ticks.special { top: .2em; width: 1.2em; height: .9em; text-align: center; border-left: 1.5px solid #666; }
 .horizontal .ui-slider-label-ticks span { position: relative; display: inline-block; margin-left: -1.2em; top: .8em; }
 
 .ui-slider-wrapper.vertical { width: 4.5em; }
 .vertical .ui-slider-labels { top: 1px; bottom: 0; left: 0.7em; }
 .vertical .ui-slider-label-ticks { height: 1.2em; width: 0.8em; border-bottom: 1px solid #999; }
 .vertical .ui-slider-label-ticks span { position: relative; display: inline-block; margin-left: 1em; top: .6em; }
+
+.ui-slider-handle.slider a{
+	cursor: pointer;
+}

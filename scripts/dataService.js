@@ -1,6 +1,8 @@
 app.factory('dataService', function() {
 
-    var tEmpty, numPatches, numCars, patches, cars, stops, tripLengths, avgKeeper;
+    var tEmpty, numPatches, numCars, patches, cars, stops, tripLength, avgKeeper;
+
+    var maxTripLength = 3;
 
     reset();
 
@@ -174,7 +176,10 @@ app.factory('dataService', function() {
     }
 
     function destMaker(orig) {
-        var a = Math.random() < tripLength / numPatches ? 3 : 2
+        // var a = Math.random() < tripLength / numPatches ? 3 : 2;
+        var threshold = 1.0 - (maxTripLength - tripLength / 25);
+        var a = (Math.random() >= threshold) ?
+            2 : 3;
         return (orig + a * 25) % numPatches;
     }
 

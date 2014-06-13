@@ -31,3 +31,7 @@ body{
 .ui-slider-label-ticks{
 	font-size: 13px;
 }
+
+.ui-slider-handle a{
+	cursor: pointer;
+}

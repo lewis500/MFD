@@ -47,7 +47,7 @@ app.directive('barChart', function() {
                 .attr("transform", "rotate(-90)")
                 .attr("y", -60)
                 .attr("dy", ".71em")
-                .attr("x",-70)
+                .attr("x", -70)
                 .style("text-anchor", "end")
                 .text("number exited");
 
@@ -93,10 +93,9 @@ app.directive('barChart', function() {
                     })
                     .attr("width", x.rangeBand());
 
-                bar.transition().duration(250)
-                    .attr("y", function(d) {
-                        return y(d);
-                    })
+                bar.attr("y", function(d) {
+                    return y(d);
+                })
                     .attr("height", function(d) {
                         return height - y(d);
                     });

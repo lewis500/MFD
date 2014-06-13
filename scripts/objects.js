@@ -20,7 +20,7 @@ function runnerGen(fun, pace) {
     function start() {
 
         var t = 0,
-            timeSinceCall = 0,
+            timeSinceCall = pace,
             last = 0;
 
         d3.timer(function(elapsed) {
@@ -49,10 +49,10 @@ function runnerGen(fun, pace) {
 }
 
 function stepperGen(fun, pace) {
-    var steps = 0;
+    var steps = pace;
 
     function reset() {
-        steps = 0;
+        steps = pace;
     }
 
     function step() {
