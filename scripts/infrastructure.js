@@ -92,7 +92,6 @@ app.directive('infrastructure', function() {
                 gCar.selectAll(".car")
                     .attr("transform", "translate(0," + radius + ")");
 
-
                 if (!hasText) {
 
                     svg.append("g")
@@ -136,9 +135,9 @@ app.directive('infrastructure', function() {
                         return "rotate(" + (d.getLoc() / numPatches * 360) + ")";
                     })
                     .append("g")
-                    .attr("transform", "translate(" + [0, radius] + ")")
-                    .append('rect')
                     .attr("class", "car")
+                    .attr("transform", "translate(0," + radius + ")")
+                    .append('rect')
                     .attr({
                         width: 10,
                         height: 10,
@@ -148,11 +147,6 @@ app.directive('infrastructure', function() {
                             return d.dest == 0 ? carColors(3) : carColors(numPatches / d.dest);
                         }
                     })
-                    // .transition()
-                    // .duration(scope.tickPace)
-                    // .ease('cubic')
-                    // .attr('transform', 'scale(.5)')
-                    // .delay(scope.tickPace)
                     .transition()
                     .duration(scope.tickPace*3)
                     .ease('cubic')
