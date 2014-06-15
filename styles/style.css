@@ -6,6 +6,9 @@ body {
     stroke: #000;
     shape-rendering: crispEdges;
 }
+.x.axis path {
+    visibility: hidden;
+}
 .container {
     margin-left: 5px;
 }
@@ -108,7 +111,7 @@ body {
     right: 3px;
 }
 .car {
-  opacity: 0.95;
+    opacity: 0.95;
 }
 .car rect {
     stroke-width: 0px;
@@ -116,12 +119,10 @@ body {
 }
 .highlighted rect {
     stroke-width: 3px;
-     shape-rendering: crispEdges;
-
+    shape-rendering: crispEdges;
 }
-.g-ramp rect{
-     shape-rendering: crispEdges;
-
+.g-ramp rect {
+    shape-rendering: crispEdges;
 }
 .diminished rect {
     opacity: 0.5;
@@ -129,9 +130,8 @@ body {
 .bar {
     cursor: pointer;
     stroke-opacity: 0.4;
-     shape-rendering: crispEdges;
+    shape-rendering: crispEdges;
 }
-
-.bar.highlighted{
+.bar.highlighted {
     stroke-width: 6px;
 }
