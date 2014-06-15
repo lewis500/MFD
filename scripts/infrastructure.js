@@ -36,24 +36,40 @@ app.directive('infrastructure', function() {
                 .append("g")
                 .attr('class', 'g-cars');
 
-            var radius;
+            var outerRadius, innerRadius, carRadius;
             render();
 
             var hasText = false;
             scope.$on("windowResize", render);
             scope.$on('tickEvent', updateCars);
+            scope.$on('highlightEvent', highlightCars)
+
+            function highlightCars() {
+                var i = scope.highlighted;
+                d3.selectAll('.car')
+                    .classed('highlighted', function(d) {
+                        if (i == null) return false;
+                        return d.dest == i * numPatches / 4;
+                    })
+                    .classed('diminished', function(d) {
+                        if (i == null) return false;
+                        return d.dest !== i * numPatches / 4;
+                    });
+                // .classed('')
+            }
 
             function render() {
 
-                var width = d3.select(el[0]).node().parentElement.offsetWidth - margin.left - margin.right;
+                var width = d3.select(el[0]).node().offsetWidth - margin.left - margin.right;
 
-                radius = d3.min([width / 2, height / 2]) * .8;
+                outerRadius = d3.min([width / 2, height / 2]);
+                innerRadius = outerRadius * 0.8;
+                carRadius = outerRadius * 0.9
 
                 var center = {
                     x: width / 2,
                     y: height / 2
                 };
-
 
                 road.attr("transform", "translate(" + center.x + "," + center.y + ")");
 
@@ -65,32 +81,46 @@ app.directive('infrastructure', function() {
                     .attr("class", "g-ramp")
                     .append("rect")
                     .attr({
+                        rx: 3,
+                        ry: 3,
                         fill: function(d) {
-                            return d.loc == 0 ? carColors(3) : carColors(numPatches / d.loc);
+                            return carColors(d.loc / numPatches * 4);
                         },
-                        opacity: .4
+                        opacity: .5,
+                        stroke: "#ccc",
+                        "stroke-width": 3
                     });
 
                 gRamp.attr("transform", function(d) {
                     var m = d.loc / numPatches * 360;
-                    return "rotate(" + m + ") translate(" + [0, radius] + ")"
+                    return "rotate(" + m + ") translate(" + [0, outerRadius + 1] + ")"
                 });
 
                 gRamp.selectAll("rect")
                     .attr({
-                        width: radius * 0.2,
-                        height: radius * 0.4,
-                        y: -radius * 0.2,
-                        x: -radius * 0.1,
+                        width: outerRadius * 0.2,
+                        height: outerRadius * 0.4,
+                        y: -outerRadius * 0.4,
+                        x: -outerRadius * 0.1,
                     });
 
-                roadMaker.innerRadius(radius * .85)
-                    .outerRadius(radius * 1.15);
+                roadMaker.innerRadius(innerRadius)
+                    .outerRadius(outerRadius*.97);
 
                 roadPath.attr("d", roadMaker);
 
+                var H = outerRadius * 0.05
+
                 gCar.selectAll(".car")
-                    .attr("transform", "translate(0," + radius + ")");
+                    .attr({
+                        "transform": "translate(0," + carRadius + ")",
+                        width: H,
+                        height: H / 2,
+                        ry: H / 2,
+                        rx: H / 5,
+                        y: -H / 2
+                    })
+
 
                 if (!hasText) {
 
@@ -111,7 +141,7 @@ app.directive('infrastructure', function() {
             function updateCars() {
 
                 d3.select(".g-text").select("div")
-                    .html("<h5>Exit Rate: " + scope.rate + " (cars/sec)</h5><h5>Elapsed: " + scope.elapsed + " sec</h5><h5>Cars on the road: " + scope.numCars + "</h5>");
+                    .html("<h5>Exit Rate: " + scope.rate * 10 + " (cars/10 sec)</h5><h5>Time Elapsed: " + scope.elapsed + " sec</h5><h5>Cars on the road: " + scope.numCars + "</h5>");
 
                 var carsArray = gCar.selectAll('.g-car')
                     .data(scope.cars, function(d) {
@@ -128,6 +158,8 @@ app.directive('infrastructure', function() {
                         return "rotate(" + (d.getLoc() / numPatches * 360) + ")";
                     });
 
+                var H = outerRadius * 0.05
+
                 carsArray.enter()
                     .append('g')
                     .attr("class", "g-car")
@@ -136,21 +168,28 @@ app.directive('infrastructure', function() {
                     })
                     .append("g")
                     .attr("class", "car")
-                    .attr("transform", "translate(0," + radius + ")")
+                    .attr("transform", "translate(0," + carRadius + ")")
                     .append('rect')
                     .attr({
-                        width: 10,
-                        height: 10,
-                        // class: "g-sticker",
+                        width: H,
+                        height: H / 2,
+                        ry: H / 2,
+                        rx: H / 5,
+                        y: -H / 2,
                         transform: "scale(2)",
                         fill: function(d) {
-                            return d.dest == 0 ? carColors(3) : carColors(numPatches / d.dest);
+                            return carColors(d.dest / numPatches * 4);
+                        },
+                        stroke: function(d) {
+                            return carColors(d.dest / numPatches * 4);
                         }
                     })
                     .transition()
-                    .duration(scope.tickPace*3)
+                    .duration(scope.tickPace * 3)
                     .ease('cubic')
                     .attr('transform', 'scale(1)');
+
+                highlightCars(scope.highlighted);
 
             } //end updateCars
 

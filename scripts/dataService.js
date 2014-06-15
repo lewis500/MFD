@@ -82,7 +82,7 @@ app.factory('dataService', function() {
     }
 
     function add() {
-        stops.forEach(function(d) {
+        _.shuffle(stops).forEach(function(d) {
             d.choose();
         });
 

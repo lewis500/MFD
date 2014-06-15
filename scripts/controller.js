@@ -19,6 +19,14 @@ app.controller('mainCtrl', ['$scope', 'dataService',
         };
         s.elapsed = 0;
 
+        s.highlighted = null;
+
+        s.highlighter = function(i) {
+            s.highlighted = i;
+            s.$broadcast('highlightEvent');
+            s.$apply();
+        }
+
         var preVal = s.tickPace;
 
         s.$watch('tripLength', function(newVal) {
