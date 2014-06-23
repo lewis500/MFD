@@ -66,10 +66,13 @@ angular.module('ui.slider', []).value('uiSliderConfig', {}).directive('uiSlider'
                     $timeout(init, 0, true);
 
                     // Update model value from slider
-                    elm.bind('slide', function(event, ui) {
+
+                    var slideDeb = _.debounce(function(event, ui) {
                         ngModel.$setViewValue(ui.values || ui.value);
                         scope.$apply();
-                    });
+                    }, 25);
+
+                    elm.bind('slide', slideDeb);
 
                     // Update slider from model value
                     ngModel.$render = function() {

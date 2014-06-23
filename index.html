@@ -39,9 +39,9 @@
             <div class="col-sm-6">
                 <div bar-chart></div>
                 <h5>Simulation Speed</h5>
-                <div class="slider" ui-slider="{orientation: 'horizontal', tickInterval: 10, step: 2.5}" min="10" max="100" ng-model="tickFreq"></div>
+                <div class="slider" ui-slider="{orientation: 'horizontal', tickInterval: 10, step: 1, labeled: false}" min="50" max="90" ng-model="tickFreq"></div>
                 <h5>Ramp Rate (cars/10 sec)</h5>
-                <div class="slider" ui-slider="{orientation: 'horizontal', tickInterval: 1, step: 0.25}" min="1" max="10" ng-model="addFreq"></div>
+                <div class="slider" ui-slider="{orientation: 'horizontal', tickInterval: 1, step: 0.0625}" min="5" max="10" ng-model="addFreq"></div>
                 <h5>Trip Length</h5>
                 <div class="slider" ui-slider="{orientation: 'horizontal', tickInterval: 5, step: 1}" min="50" max="75" ng-model="tripLength"></div>
             </div>

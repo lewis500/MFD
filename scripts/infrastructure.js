@@ -30,7 +30,8 @@ app.directive('infrastructure', function() {
                 .attr("class", "road")
 
             var roadPath = road.append('path')
-                .attr("fill", "#111");
+                .attr("fill", "lightgrey")
+                .attr("opacity",0.7);
 
             var gCar = road
                 .append("g")
@@ -86,7 +87,7 @@ app.directive('infrastructure', function() {
                         fill: function(d) {
                             return carColors(d.loc / numPatches * 4);
                         },
-                        opacity: .5,
+                        opacity: .7,
                         stroke: "#ccc",
                         "stroke-width": 3
                     });
@@ -152,7 +153,7 @@ app.directive('infrastructure', function() {
 
                 carsArray
                     .transition()
-                    .duration(scope.tickPace)
+                    .duration(scope.transitionPace)
                     .ease('linear')
                     .attr("transform", function(d) {
                         return "rotate(" + (d.getLoc() / numPatches * 360) + ")";
@@ -172,11 +173,11 @@ app.directive('infrastructure', function() {
                     .append('rect')
                     .attr({
                         width: H,
-                        height: H / 2,
-                        ry: H / 2,
+                        height: H * .8,
+                        // ry: H / 2,
                         rx: H / 5,
-                        y: -H / 2,
-                        transform: "scale(2)",
+                        y: -H / 2 - H*.2,
+                        // transform: "scale(2)",
                         fill: function(d) {
                             return carColors(d.dest / numPatches * 4);
                         },
@@ -184,10 +185,10 @@ app.directive('infrastructure', function() {
                             return carColors(d.dest / numPatches * 4);
                         }
                     })
-                    .transition()
-                    .duration(scope.tickPace * 3)
-                    .ease('cubic')
-                    .attr('transform', 'scale(1)');
+                    // .transition()
+                    // .duration(scope.tickPace * 3)
+                    // .ease('cubic')
+                    // .attr('transform', 'scale(1)');
 
                 highlightCars(scope.highlighted);
 

@@ -78,6 +78,7 @@
         },
 
         _drawLabels: function() {
+            if(this.options.labeled == false) return;
 
             var labels = this.options.tickLabels || {},
                 $lbl = this.uiSlider.children('.ui-slider-labels'),
@@ -96,7 +97,7 @@
 
             for (; i <= cnt; i += inr) {
 
-                if ((!ta && i % inr == 0) || (ta && tickArray.indexOf(i + min) > -1)) {
+                // if ((!ta && i % inr == 0) || (ta && tickArray.indexOf(i + min) > -1)) {
 
                     label = labels[i + min] ? labels[i + min] : (this.options.tweenLabels ? i + min : '');
 
@@ -108,7 +109,7 @@
                         G.html('<span>' + (label) + '</span>');
                     }
                     G.appendTo($lbl);
-                }
+                // }
             }
 
         },

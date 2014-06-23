@@ -3,6 +3,7 @@ app.factory('dataService', function() {
     var tEmpty, numPatches, numCars, patches, cars, stops, tripLength, avgKeeper;
 
     var maxTripLength = 3;
+    var tripLength = 50;
 
     reset();
 
@@ -11,13 +12,18 @@ app.factory('dataService', function() {
         numPatches = 100;
         numCars = 0;
 
-        patches = d3.range(numPatches).map(function(d) {
-            return patcher(d);
+        patches = d3.range(numPatches)
+            .map(function(d) {
+                return patcher(d);
+            });
+
+        patches.forEach(function(d, i, k) {
+            d.setNext(k[(i + 1) % numPatches])
         });
 
         cars = [];
         stops = [];
-        tripLength = 60;
+        // tripLength = 50;
 
         patches.forEach(function(d, i) {
             if (d.loc % 25 == 0) {
@@ -38,6 +44,10 @@ app.factory('dataService', function() {
     function tick() {
         patches.forEach(function(d) {
             d.choose();
+        });
+
+        stops.forEach(function(stop) {
+            stop.queueChoice();
         });
 
         cars.forEach(function(car) {
@@ -93,6 +103,7 @@ app.factory('dataService', function() {
         var car = null;
         var stop = null;
         var howLong = tEmpty + 1;
+        var next;
 
         function choose() {
             if (isEmpty()) howLong++;
@@ -100,11 +111,15 @@ app.factory('dataService', function() {
         }
 
         function isFree() {
-            return howLong >= tEmpty && isEmpty(); //must create 
+            return ((howLong >= tEmpty) && !car); //must create 
         }
 
         function isEmpty() {
-            return car === null; //must create 
+            return !car; //must create 
+        }
+
+        function getHowLong() {
+            return howLong;
         }
 
         function setCar(newCar) {
@@ -116,14 +131,19 @@ app.factory('dataService', function() {
             car = null;
         }
 
+        function setNext(newNext) {
+            next = newNext;
+        }
+
         function getNext() {
-            var nextLoc = (loc + 1) % numPatches;
-            return patches[nextLoc];
+            return next;
         }
 
         return {
             loc: loc,
             getNext: getNext,
+            setNext: setNext,
+            getHowLong: getHowLong,
             setCar: setCar,
             isFree: isFree,
             removeCar: removeCar,
@@ -186,6 +206,9 @@ app.factory('dataService', function() {
     function stopper(patch) {
         var loc = patch.loc;
         var exited = [];
+        var queue = [];
+
+        var onPatch = patch.getNext().getNext();
 
         function receiveCar(newCar) {
             exited.push(newCar);
@@ -195,20 +218,26 @@ app.factory('dataService', function() {
             return exited;
         }
 
-        function choose() {
-            if (!patch.isEmpty()) return;
-            var dest = destMaker(loc);
-            var newCar = new Car(patch, dest);
-            patch.setCar(newCar);
+        function queueChoice() {
+            if (!onPatch.isFree() || queue.length == 0) return;
+            var newCar = queue.pop();
+            onPatch.setCar(newCar);
             cars.push(newCar);
-            numCars++
+        }
+
+        function choose() {
+            var dest = destMaker(loc);
+            var newCar = new Car(onPatch, dest);
+            queue.push(newCar);
+            numCars++;
         }
 
         return {
             choose: choose,
             loc: loc,
             getExited: getExited,
-            receiveCar: receiveCar
+            receiveCar: receiveCar,
+            queueChoice: queueChoice
         };
 
     }

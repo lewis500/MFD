@@ -4,15 +4,18 @@ var carColors = d3.scale.ordinal()
 
 app.controller('mainCtrl', ['$scope', 'dataService',
     function(s, DS) {
-        s.tickPace = 50;
-        s.tickFreq = 105 - 50;
-        s.addFreq = 2.5;
+        s.tickPace = 20;
+        s.tickFreq = 105 - 20;
+        s.addFreq = 9.75;
         s.paused = true;
-        s.tripLength = 60;
+        s.tripLength = 50;
+        DS.setTripLength(s.tripLength);
         s.cars = DS.getCars();
         s.stops = DS.getStops();
+
         s.reset = function reset() {
             s.elapsed = 0;
+            DS.setTripLength(s.tripLength);
             DS.reset();
             eRate = rateFinder();
             tickFunction();
@@ -39,11 +42,10 @@ app.controller('mainCtrl', ['$scope', 'dataService',
 
         var eRate = rateFinder();
 
-        // s.$watch('paused', timer.pause);
-
         s.$watch('tickFreq', function(newVal) {
             s.tickPace = 105 - newVal;
             s.timer.setPace(s.tickPace);
+            s.transitionPace = d3.max([10, s.tickPace]);
             // s.$apply();
         });
 
@@ -51,17 +53,21 @@ app.controller('mainCtrl', ['$scope', 'dataService',
             adder.setPace(1 / newVal * 100);
         });
 
+        var DB = _.throttle(function() {
+            s.$broadcast('tickEvent');
+        }, 18);
 
         function tickFunction() {
-            adder.step();
             DS.tick();
+            adder.step();
             s.cars = DS.getCars();
             s.numCars = s.cars.length;
             s.stops = DS.getStops();
             s.rate = eRate.increment(s.stops);
             s.elapsed++;
-            s.$broadcast('tickEvent')
-            s.safeApply();
+            // s.$broadcast('tickEvent');
+            DB();
+            // s.safeApply();
         }
 
         function rateFinder() {
