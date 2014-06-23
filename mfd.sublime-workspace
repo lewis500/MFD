@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"hgl",
+				"highlighted"
+			],
+			[
+				"throttl",
+				"throttled"
+			],
+			[
+				"num",
+				"numPatches"
+			],
+			[
 				"road",
 				"roadMaker"
 			],
@@ -60,10 +72,6 @@
 				"function"
 			],
 			[
-				"num",
-				"numCars"
-			],
-			[
 				"con",
 				"controller	AngularJS"
 			]
@@ -72,26 +80,13 @@
 	"buffers":
 	[
 		{
-			"file": "styles/style.css",
+			"contents": "app.directive('barChart', function() {\n    var margin = {\n        top: 10,\n        right: 20,\n        bottom: 20,\n        left: 55\n    },\n        height = 300 - margin.top - margin.bottom;\n\n    var x = d3.scale.ordinal()\n    // .rangeRoundBands([0, width], .1)\n    .domain([0, 1, 2, 3]);\n\n    var y = d3.scale.linear()\n        .range([height, 0])\n        .domain([0, 8]);\n\n    var xAxis = d3.svg.axis()\n        .scale(x)\n        .orient(\"bottom\");\n\n    var yAxis = d3.svg.axis()\n        .scale(y)\n        .orient(\"left\")\n        .tickFormat(d3.format(\",.0f\"));\n\n    return {\n        restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment\n        link: function(scope, el, attr) {\n\n            var throttled = _.throttle(function(data) {\n                y.domain([0, d3.max([d3.max(data) * 1.2, 8])]);\n                gYAxis.transition().duration(300)\n                    .call(yAxis);\n            }, 300);\n\n            var svg = d3.select(el[0])\n                .append(\"svg\")\n                .style('width', '100%')\n                .style(\"height\", height + margin.top + margin.bottom)\n                .append(\"g\")\n                .attr(\"transform\", \"translate(\" + margin.left + \",\" + margin.top + \")\");\n\n            var gXAxis = svg.append(\"g\")\n                .attr(\"class\", \"x axis\")\n                .attr(\"transform\", \"translate(0,\" + height + \")\")\n\n            var gYAxis = svg.append(\"g\")\n                .attr(\"class\", \"y axis\")\n                .call(yAxis);\n\n            gYAxis.append(\"text\")\n                .attr(\"transform\", \"rotate(-90)\")\n                .attr(\"y\", -50)\n                .attr(\"dy\", \".71em\")\n                .attr(\"x\", -70)\n                .style(\"text-anchor\", \"end\")\n                .text(\"number exited\");\n\n            svg.selectAll(\".bar\")\n                .data([0, 0, 0, 0])\n                .enter().append(\"rect\")\n                .attr(\"class\", \"bar\")\n                .attr(\"rx\", 1.5)\n                .attr(\"ry\", 1.5)\n                .attr(\"x\", function(d, i) {\n                    return x(i);\n                })\n                .attr('fill', function(d, i) {\n                    return carColors(i);\n                })\n                .attr('stroke', function(d, i) {\n                    return carColors(i);\n                })\n                .attr(\"width\", x.rangeBand())\n                .on('mouseover', mOverFunc)\n                .on('mouseout', mOutFun);\n\n            scope.$on(\"windowResize\", render);\n            scope.$on('tickEvent', updater);\n\n            render();\n\n            function mOverFunc(d, i) {\n                scope.highlighter(i);\n                svg.selectAll('.highlighted').classed(\"highlighted\", false);\n                d3.select(this).classed(\"highlighted\", true);\n            }\n\n            function mOutFun(d, i) {\n                d3.select(this).classed(\"highlighted\", false);\n                scope.highlighter(null);\n            }\n\n            function render() {\n\n                var width = d3.select(el[0]).node().parentElement.offsetWidth - margin.left - margin.right;\n\n                x.rangeRoundBands([0, width], .2);\n                xAxis.scale(x);\n                gXAxis.call(xAxis);\n\n                svg.selectAll('.bar')\n                    .attr(\"width\", x.rangeBand())\n                    .attr(\"x\", function(d, i) {\n                        return x(i);\n                    });\n\n            }\n\n            function updater() {\n                var data = scope.stops\n                    .map(function(d) {\n                        return d.getExited().length;\n                    });\n\n                throttled(data);\n\n                var bar = svg.selectAll(\".bar\")\n                    .data(data);\n\n                bar.transition().duration(50)\n                    .ease('cubic')\n                    .attr(\"y\", function(d) {\n                        return y(d);\n                    })\n                    .attr(\"height\", function(d) {\n                        return height - y(d);\n                    });\n\n            };\n\n        }\n    };\n});\n",
+			"file": "scripts/bar.js",
+			"file_size": 4039,
+			"file_write_time": 130472659730967083,
 			"settings":
 			{
-				"buffer_size": 468,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/controller.js",
-			"settings":
-			{
-				"buffer_size": 2539,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/dataService.js",
-			"settings":
-			{
-				"buffer_size": 4712,
+				"buffer_size": 4039,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,15 +94,15 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 3189,
+				"buffer_size": 3315,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scripts/infrastructure.js",
+			"file": "libraries/slider.js",
 			"settings":
 			{
-				"buffer_size": 5148,
+				"buffer_size": 4904,
 				"line_ending": "Unix"
 			}
 		}
@@ -115,7 +110,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 285.0,
+		"height": 264.0,
 		"selected_items":
 		[
 			[
@@ -125,6 +120,10 @@
 			[
 				"pret",
 				"HTMLPrettify"
+			],
+			[
+				"prtt",
+				"Preferences: Settings - Default"
 			],
 			[
 				"pre",
@@ -168,42 +167,48 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/github/MFD/index.html",
-		"/home/lewis/github/MFD/scripts/objects.js",
-		"/home/lewis/github/MFD/scripts/controller.js",
+		"/home/lewis/github/MFD/libraries/rangeSlider/css/classic-min.css",
+		"/home/lewis/github/MFD/libraries/rangeSlider/css/iThing.css",
+		"/home/lewis/Desktop/MFDTodo",
+		"/home/lewis/github/MFD/styles/style.css",
+		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/Car.java",
+		"/home/lewis/github/MFD/styles/car.svg",
+		"/home/lewis/github/MFD/styles/bootstrap.css",
+		"/home/lewis/github/MFD/styles/slider2.css",
+		"/home/lewis/github/MFD/libraries/slider.js",
 		"/home/lewis/github/MFD/scripts/infrastructure.js",
+		"/home/lewis/github/MFD/index.html",
 		"/home/lewis/github/MFD/scripts/bar.js",
-		"/home/lewis/github/MFD/scripts/dataService.js",
+		"/home/lewis/github/MFD/scripts/controller.js",
+		"/home/lewis/github/MFD/libraries/rangeSlider/jquery-ui-custom.js",
+		"/home/lewis/github/MFD/libraries/rangeSlider/GPL-License.txt",
+		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/lewis/github/MFD/libraries/angular.min.js",
 		"/home/lewis/github/MFD/libraries/angular-slider.js",
-		"/home/lewis/Desktop/MFDTodo",
-		"/home/lewis/github/MFD/libraries/slider.js",
-		"/home/lewis/github/MFD/styles/slider2.css",
-		"/home/lewis/github/MFD/libraries/rangeSlider/demo/sliderDemo.js",
-		"/home/lewis/github/MFD/styles/style.css",
 		"/home/lewis/Desktop/luxe todo",
-		"/home/lewis/github/MFD/libraries/buttons.js",
-		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/Buckets.java",
+		"/home/lewis/github/MFD/LICENSE",
+		"/home/lewis/github/MFD/libraries/d3.v3.js",
+		"/home/lewis/github/MFD/libraries/rangeSlider/demo/sliderDemo.js",
 		"/home/lewis/github/MFD/rangeSlider.js",
+		"/home/lewis/github/MFD/scripts/dataService.js",
+		"/home/lewis/Desktop/bottleneck todo",
+		"/home/lewis/github/MFD/libraries/rangeSlider/demo/editSliderDemo.js",
+		"/home/lewis/github/MFD/README.md",
 		"/home/lewis/github/MFD/ruler.js",
+		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/Buckets.java",
+		"/home/lewis/github/MFD/libraries/buttons.js",
 		"/home/lewis/Desktop/todo housing.txt",
+		"/home/lewis/github/MFD/scripts/objects.js",
 		"/home/lewis/github/MFD/scripts/pages/index.html",
 		"/home/lewis/github/MFD/libraries/rangeSlider/demo/dateSliderDemo.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/demo/style.css",
 		"/home/lewis/github/MFD/libraries/rangeSlider/css/classic.css",
-		"/home/lewis/github/MFD/libraries/rangeSlider/css/iThing.css",
 		"/home/lewis/github/MFD/styles/jquery-ui.css",
-		"/home/lewis/github/MFD/libraries/rangeSlider/css/classic-min.css",
-		"/home/lewis/github/MFD/libraries/rangeSlider/GPL-License.txt",
-		"/home/lewis/github/MFD/libraries/rangeSlider/demo/editSliderDemo.js",
-		"/home/lewis/github/MFD/README.md",
 		"/home/lewis/github/MFD/slider.js",
-		"/home/lewis/github/MFD/libraries/rangeSlider/jquery-ui-custom.js",
 		"/home/lewis/github/MFD/libraries/jquery-1.10.2.js",
 		"/home/lewis/github/MFD/mfd.sublime-project",
 		"/home/lewis/github/MFD/libraries/rangeSlider/jQRangeSlider-withRuler-min.js",
 		"/home/lewis/github/MFD/libraries/underscore.min.js",
-		"/home/lewis/Desktop/bottleneck todo",
 		"/home/lewis/github/MFD/scripts/bus.js",
 		"/home/lewis/Desktop/tracker todo",
 		"/home/lewis/github/MFD/scripts/car.js",
@@ -211,7 +216,6 @@
 		"/home/lewis/github/MFD/styles/car2.svg",
 		"/home/lewis/github/MFD/styles/slider.css",
 		"/home/lewis/github/MFD/libraries/rangeSlider/demo/index.html",
-		"/home/lewis/github/MFD/LICENSE",
 		"/home/lewis/github/MFD/libraries/jquery.min.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/jQRangeSlider-min.js",
 		"/home/lewis/github/MFD/jqui.js",
@@ -266,6 +270,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"carradius",
+			"outerradius",
+			"width:",
+			"rx",
+			"outerradius",
+			"100",
+			"back",
+			"cubic",
+			"200",
+			"1000",
+			"gyaxis",
+			"debugger;",
+			".domain",
+			"div",
+			"radius",
+			"bootstra",
+			"radius",
+			"height",
+			"carcolor",
+			"carcolors",
+			"color",
+			"carcolors",
 			".car",
 			"render",
 			"resize",
@@ -371,29 +397,7 @@
 			"options",
 			".labeledslider",
 			".slider",
-			"ngmode",
-			"bootstrap",
-			"labeledslider",
-			"observe",
-			"width",
-			"sliders",
-			"width",
-			"slider",
-			"elm.slider(",
-			"ruler",
-			"600px",
-			"border",
-			"state-default",
-			"handle",
-			"null",
-			"position",
-			"bootstrap",
-			"container",
-			"ruler",
-			"rangeSlider",
-			".data",
-			"right",
-			"date"
+			"ngmode"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -437,112 +441,54 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "styles/style.css",
+					"file": "scripts/bar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 468,
+						"buffer_size": 4039,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								154,
-								154
+								638,
+								638
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "scripts/controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2539,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1941,
-								1941
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 616.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scripts/dataService.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4712,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								207,
-								207
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3189,
+						"buffer_size": 3315,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								431,
-								431
+								1214,
+								1214
 							]
 						],
 						"settings":
@@ -555,37 +501,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "scripts/infrastructure.js",
+					"buffer": 2,
+					"file": "libraries/slider.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5148,
+						"buffer_size": 4904,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3926,
-								3926
+								3070,
+								3070
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1482.0,
+						"translation.y": 1097.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -638,44 +584,108 @@
 		"selected_items":
 		[
 			[
-				"infra",
-				"MFD/scripts/infrastructure.js"
+				"main.css",
+				"MFD/libraries/rangeSlider/css/classic-min.css"
 			],
 			[
 				"ind",
 				"MFD/index.html"
 			],
 			[
-				"inde",
-				"MFD/index.html"
-			],
-			[
-				"data",
-				"MFD/scripts/dataService.js"
-			],
-			[
-				"controll",
-				"MFD/scripts/controller.js"
+				"style",
+				"MFD/styles/style.css"
 			],
 			[
 				"bar",
 				"MFD/scripts/bar.js"
 			],
 			[
+				"slider",
+				"MFD/libraries/slider.js"
+			],
+			[
+				"infra",
+				"MFD/scripts/infrastructure.js"
+			],
+			[
+				"controll",
+				"MFD/scripts/controller.js"
+			],
+			[
+				"ifnra",
+				"MFD/scripts/infrastructure.js"
+			],
+			[
+				"car",
+				"Gridlock animation source code 4 10 06/Car.java"
+			],
+			[
+				"infa",
+				"MFD/scripts/infrastructure.js"
+			],
+			[
+				"sy",
+				"MFD/styles/style.css"
+			],
+			[
+				"contr",
+				"MFD/scripts/controller.js"
+			],
+			[
+				"infras",
+				"MFD/scripts/infrastructure.js"
+			],
+			[
+				"inde",
+				"MFD/index.html"
+			],
+			[
+				"mfd",
+				"Desktop/MFDTodo"
+			],
+			[
+				"slider2",
+				"MFD/styles/slider2.css"
+			],
+			[
+				"boot",
+				"MFD/styles/bootstrap.css"
+			],
+			[
 				"bar.js",
 				"MFD/scripts/bar.js"
 			],
 			[
-				"style",
-				"MFD/styles/style.css"
+				"boo",
+				"MFD/styles/bootstrap.css"
+			],
+			[
+				"rett",
+				"MFD/libraries/rangeSlider/GPL-License.txt"
+			],
+			[
+				"datas",
+				"MFD/scripts/dataService.js"
+			],
+			[
+				"ifnras",
+				"MFD/scripts/infrastructure.js"
+			],
+			[
+				"slider.js",
+				"MFD/libraries/slider.js"
+			],
+			[
+				"todo",
+				"Desktop/todo housing.txt"
+			],
+			[
+				"data",
+				"MFD/scripts/dataService.js"
 			],
 			[
 				"object",
 				"MFD/scripts/objects.js"
-			],
-			[
-				"slider",
-				"MFD/styles/slider2.css"
 			],
 			[
 				"fd",
@@ -694,32 +704,12 @@
 				"MFD/rangeSlider.js"
 			],
 			[
-				"datas",
-				"MFD/scripts/dataService.js"
-			],
-			[
 				"bars",
 				"MFD/scripts/bar.js"
 			],
 			[
-				"ifnra",
-				"MFD/scripts/infrastructure.js"
-			],
-			[
-				"infras",
-				"MFD/scripts/infrastructure.js"
-			],
-			[
-				"slider2",
-				"MFD/styles/slider2.css"
-			],
-			[
 				".css",
 				"MFD/styles/style.css"
-			],
-			[
-				"mfd",
-				"Desktop/MFDTodo"
 			],
 			[
 				"",
@@ -730,16 +720,8 @@
 				"MFD/libraries/angular-slider.js"
 			],
 			[
-				"todo",
-				"Desktop/todo housing.txt"
-			],
-			[
 				"jquer",
 				"MFD/libraries/rangeSlider/jquery-ui-custom.js"
-			],
-			[
-				"slider.js",
-				"MFD/libraries/slider.js"
 			],
 			[
 				"objec",
@@ -804,10 +786,6 @@
 			[
 				"angulars",
 				"MFD/libraries/angular-slider.js"
-			],
-			[
-				"contr",
-				"MFD/scripts/controller.js"
 			],
 			[
 				"jquery",
@@ -886,10 +864,6 @@
 				"scripts/infrastructure.js"
 			],
 			[
-				"car",
-				"scripts/car.js"
-			],
-			[
 				"draw",
 				"scripts/draw.js"
 			],
@@ -907,7 +881,7 @@
 		[
 			[
 				"",
-				"~/github/valet-analytics/valet.sublime-project"
+				"~/github/barc/barc.sublime-project"
 			]
 		],
 		"width": 380.0

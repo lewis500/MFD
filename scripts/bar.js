@@ -37,7 +37,7 @@ app.directive('barChart', function() {
             var svg = d3.select(el[0])
                 .append("svg")
                 .style('width', '100%')
-                .style("height", height + margin.top + margin.bottom)
+                .style("height", height + margin.top + margin.bottom +"px")
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
