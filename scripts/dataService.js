@@ -1,7 +1,5 @@
 app.factory('dataService', function() {
-
-    var tEmpty, numPatches, numCars, patches, cars, stops, tripLength, avgKeeper;
-
+    var tEmpty, numPatches, numCars, patches, cars, stops, tripLength, avgKeeper, exits;
     var maxTripLength = 3;
     var tripLength = 50;
 
@@ -11,6 +9,9 @@ app.factory('dataService', function() {
         tEmpty = 4;
         numPatches = 100;
         numCars = 0;
+        exits = [];
+        cars = [];
+        stops = [];
 
         patches = d3.range(numPatches)
             .map(function(d) {
@@ -21,89 +22,39 @@ app.factory('dataService', function() {
             d.setNext(k[(i + 1) % numPatches])
         });
 
-        cars = [];
-        stops = [];
-        // tripLength = 50;
-
         patches.forEach(function(d, i) {
-            if (d.loc % 25 == 0) {
-                var newStop = stopper(d);
-                d.stop = newStop;
-                stops.push(newStop);
-            }
+            if (d.loc % 25 !== 0) return;
+            d.stop = stopper(d);
+            stops.push(d.stop);
         });
-
-        avgKeeper = avger();
-
-    }
-
-    function getAvgKeeper() {
-        return avgKeeper;
     }
 
     function tick() {
-        patches.forEach(function(d) {
-            d.choose();
-        });
+        _.invoke(patches, 'choose');
 
+        var sum = 0;
         stops.forEach(function(stop) {
             stop.queueChoice();
+            sum += stop.getExited().length;
+            exits.push(sum);
         });
 
-        cars.forEach(function(car) {
-            car.choose();
-        });
-
-        avgKeeper.increment();
+        _.invoke(cars, 'choose');
     }
 
-    function getCars() {
-        return cars;
-    }
-
-    function getStops() {
-        return stops;
-    }
-
-    function setTripLength(newVal) {
-        tripLength = newVal;
-    }
-
-    function avger() {
-        var lastCount = 0;
-        var rates = [];
-
-        function increment() {
-            newCount = cars.length;
-            newRate = newCount - lastCount;
-            rates.push(newRate);
-            lastCount = newCount;
-        }
-
-        function getAvg() {
-            if (rates.length < 20) return null;
-            return d3.mean(_.last(rates, 20));
-        }
-
-        return {
-            increment: increment,
-            getAvg: getAvg
-        };
-    }
 
     function add() {
-        _.shuffle(stops).forEach(function(d) {
-            d.choose();
-        });
+
+        _.invoke(_.shuffle(stops), 'choose');
 
     }
 
     function patcher(num) {
-        var loc = num;
-        var car = null;
-        var stop = null;
+        var loc = num,
+            car = null,
+            stop, next;
+
         var howLong = tEmpty + 1;
-        var next;
 
         function choose() {
             if (isEmpty()) howLong++;
@@ -242,14 +193,27 @@ app.factory('dataService', function() {
 
     }
 
+    function getExitRate() {
+        var a = d3.min([100, exits.length]);
+        var b = (exits[exits.length - 1] - exits[exits.length - a]) / a;
+        return b * 10;
+    }
+
+
     return {
-        getCars: getCars,
-        getStops: getStops,
-        setTripLength: setTripLength,
+        getCars: function() {
+            return cars;
+        },
+        getStops: function() {
+            return stops;
+        },
+        setTripLength: function(newVal) {
+            tripLength = newVal;
+        },
+        getExitRate: getExitRate,
         tick: tick,
         add: add,
         reset: reset,
-        getAvgKeeper: getAvgKeeper
     };
 
 });

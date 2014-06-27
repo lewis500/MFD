@@ -1,6 +1,9 @@
 body {
     font-family:'Open Sans', sans-serif;
 }
+text {
+    fill: rgb(44, 62, 80);
+}
 .axis path, .axis line {
     fill: none;
     stroke: #000;

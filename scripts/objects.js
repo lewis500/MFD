@@ -66,10 +66,70 @@ function stepperGen(fun, pace) {
         pace = newPace;
     }
 
+    function setVelocity(newVel) {
+        pace = 1 / newVel;
+    }
+
     return {
         setPace: setPace,
         step: step,
-        reset: reset
+        reset: reset,
+        setVelocity: setVelocity
     };
 
+}
+
+
+function Stepper(fun, pace) {
+    var self = this;
+    var steps = pace;
+    self.pace = pace;
+
+    self.reset = function() {
+        steps = self.pace;
+    }
+
+    self.step = function() {
+        steps++;
+        if (steps < self.pace) return;
+        steps = 0;
+        fun();
+    }
+
+    self.setVelocity = function(v) {
+        self.pace = 1 / v
+    }
+
+    return self;
+}
+
+
+function Runner(fun, pace) {
+    var self = this;
+    var paused = true;
+    self.pace = pace;
+
+    self.pause = function(newVal) {
+        if (newVal !== undefined) paused = newVal;
+        else paused = !paused;
+        if (!paused) self.start();
+    };
+
+    self.start = function() {
+        var t = 0,
+            timeSinceCall = self.pace,
+            last = 0;
+
+        d3.timer(function(elapsed) {
+            t = (elapsed - last);
+            timeSinceCall = timeSinceCall + t;
+            if (timeSinceCall >= self.pace) {
+                timeSinceCall = 0;
+                fun();
+            }
+            last = elapsed;
+            return paused;
+        });
+    };
+    return self;
 }
