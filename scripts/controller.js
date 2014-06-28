@@ -4,21 +4,18 @@ var carColors = d3.scale.ordinal()
 
 app.controller('mainCtrl', ['$scope', 'dataService', '$rootScope',
     function(s, DS, $rs) {
-        s.paused = true;
         s.tripLength = 50;
         s.elapsed = 0;
 
-        s.timer = new Runner(tickFunction, 20);
-        s.timer.velocity = 1 / 20 * 1000;
-        s.$watch('timer.velocity', function(newVal) {
-            s.timer.pace = 1 / newVal * 1000;
-        });
+        s.timer = new Runner(tickFunction, 1 / 20 * 1000, true);
+        s.timer.transform = function(v) {
+            return v / 1000;
+        };
 
-        s.adder = new Stepper(DS.add, 1 / 9.75 * 100);
-        s.adder.velocity = 9.75;
-        s.$watch('adder.velocity', function(newVal) {
-            s.adder.pace = 1 / newVal * 100;
-        });
+        s.adder = new Stepper(DS.add, 9.75, true);
+        s.adder.transform = function(v) {
+            return v / 100;
+        };
 
         s.reset = function() {
             s.elapsed = 0;
@@ -35,7 +32,6 @@ app.controller('mainCtrl', ['$scope', 'dataService', '$rootScope',
         }
 
         s.$watch('tripLength', DS.setTripLength);
-
 
         var DB = _.throttle(function() {
             $rs.$emit('tickEvent');

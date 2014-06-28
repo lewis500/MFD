@@ -157,7 +157,7 @@ app.directive('infrastructure', ['$rootScope', 'dataService',
 
                     carsArray
                         .transition()
-                        .duration(d3.max([30, scope.timer.pace]))
+                        .duration(d3.max([30, scope.timer.getPace()]))
                         .ease('linear')
                         .attr("transform", function(d) {
                             return "rotate(" + (d.getLoc() / numPatches * 360) + ")";

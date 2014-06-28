@@ -32,7 +32,7 @@
             <div class="col-sm-6">
                 <div infrastructure></div>
                 <div class="row col-md-offset-2" style="margin-top: 10px;">
-                    <button style="width: 40%" class="btn btn-med {{ paused ? 'btn-success' : 'btn-warning' }}" ng-click="paused = !paused; timer.pause(paused)">{{paused ? "Play" : "Pause"}}</button>
+                    <button style="width: 40%" class="btn btn-med {{ timer.isPaused() ? 'btn-success' : 'btn-warning' }}" ng-click="timer.pause()">{{timer.isPaused() ? "Play" : "Pause"}}</button>
                     <button style="width: 40%" class="btn btn-med btn-danger" ng-click="reset()">Reset</button>
                 </div>
             </div>
@@ -40,8 +40,11 @@
                 <div bar-chart></div>
                 <h5>Simulation Speed</h5>
                 <div class="slider" ui-slider="{orientation: 'horizontal', step: 5,  labeled: false}" min="10" max="60" ng-model="timer.velocity"></div>
-                <h5>Ramp Rate (cars/10 sec)</h5>
-                <div class="slider" ui-slider="{orientation: 'horizontal', tickInterval: 1, step: 0.0625}" min="5" max="10" ng-model="adder.velocity"></div>
+                <h5>Ramp Rate (cars/10 sec)</h5> <div class="clearfix;"></div>
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="adder.paused" value="false">Stop Ramp
+                </label>
+                <div class="slider" ui-slider="{orientation: 'horizontal', tickInterval: 1, step: .25}" min="0" max="10" ng-model="adder.velocity"></div>
                 <h5>Trip Length</h5>
                 <div class="slider" ui-slider="{orientation: 'horizontal', tickInterval: 5, step: 1}" min="50" max="75" ng-model="tripLength"></div>
             </div>

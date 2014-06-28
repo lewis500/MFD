@@ -36,17 +36,15 @@ app.factory('dataService', function() {
         stops.forEach(function(stop) {
             stop.queueChoice();
             sum += stop.getExited().length;
-            exits.push(sum);
         });
+        exits.push(sum);
 
         _.invoke(cars, 'choose');
     }
 
 
     function add() {
-
         _.invoke(_.shuffle(stops), 'choose');
-
     }
 
     function patcher(num) {
