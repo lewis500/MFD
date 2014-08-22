@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- ============== CSS ===================== -->
+    <title>Simulation</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/flatui.css">
+    <link rel="stylesheet" type="text/css" href="styles/slider2.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="libraries/angular.min.js"></script>
+    <script src="libraries/buttons.js"></script>
+    <script src="libraries/slider.js"></script>
+    <script src="libraries/lodash.js"></script>
+</head>
+
+<!-- ============== BODY =================== -->
+
+<body ng-app="mainApp">
+    <div class="container" ng-controller="lineCtrl as line">
+        <div single-link></div>
+        <div class="row" style="margin-top: 20px">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button style="width: 40%" class="btn {{ line.timer.isPaused() ? 'btn-success' : 'btn-warning' }}" ng-click="line.timer.pause()">{{line.timer.isPaused() ? "Play" : "Pause"}}</button>
+                <button style="width: 40%" class="btn btn-danger" ng-click="line.reset()">Reset</button>
+            </div>
+            <div class="col-xs-4">
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="line.adder.pace" btn-radio="5">Low</label>
+                    <label class="btn btn-primary" ng-model="line.adder.pace" btn-radio="3">Med</label>
+                    <label class="btn btn-primary" ng-model="line.adder.pace" btn-radio="2">High</label>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</body>
+
+<!-- ============== LIBRARIES =================== -->
+<script type="text/javascript" src="libraries/angular-slider.js"></script>
+<script src="libraries/d3.v3.min.js" charset="utf-8"></script>
+
+<!-- ============== SCRIPTS =================== -->
+<script src="scripts/controllers/lineCtrl.js"></script>
+<script src="scripts/objects.js"></script>
+<script src="scripts/directives/line.js"></script>
+<script type="text/javascript">
+var app = angular.module('mainApp', ['ui.bootstrap', 'ui.slider']);
+app.factory("Cars", Cars);
+app.controller("lineCtrl", lineCtrl);
+app.directive("singleLink", singleLink);
+</script>
+
+</html>
