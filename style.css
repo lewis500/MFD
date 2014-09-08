@@ -1,0 +1,141 @@
+body {
+    font-family:'Open Sans', sans-serif;
+}
+text {
+    fill: rgb(44, 62, 80);
+}
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.x.axis path {
+    visibility: hidden;
+}
+.container {
+    /*margin-left: 15px;*/
+}
+.scatterDot circle {
+    stroke: none;
+    fill:'crimson';
+}
+body {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+.slider {
+    /*margin: 10px 0px 10px 0px;*/
+    font-size: 12px;
+}
+.ui-slider-label-ticks {
+    font-size: 13px;
+}
+.ui-slider-handle a {
+    cursor: pointer;
+}
+.ui-slider {
+    background: #ebedef;
+    border-radius: 32px;
+    height: 12px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.ui-slider-handle {
+    background-color: #16a085;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 18px;
+    position: absolute;
+    width: 18px;
+    z-index: 2;
+    -webkit-transition: background 0.25s;
+    transition: background 0.25s;
+}
+.ui-slider-handle:hover, .ui-slider-handle:focus {
+    background-color: #48c9b0;
+    outline: none;
+}
+.ui-slider-handle:active {
+    background-color: #16a085;
+}
+.ui-slider-range {
+    background-color: #1abc9c;
+    display: block;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.ui-slider-segment {
+    background-color: #d9dbdd;
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+}
+.ui-slider-value {
+    float: right;
+    font-size: 13px;
+    margin-top: 12px;
+}
+.ui-slider-value.first {
+    clear: left;
+    float: left;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    margin-left: -9px;
+    top: -3px;
+}
+.ui-slider-horizontal .ui-slider-handle[style*="100"] {
+    margin-left: -15px;
+}
+.ui-slider-horizontal .ui-slider-range {
+    border-radius: 30px 0 0 30px;
+}
+.ui-slider-horizontal .ui-slider-segment {
+    float: left;
+    margin: 3px -6px 0 0;
+}
+.ui-slider-vertical {
+    width: 12px;
+}
+.ui-slider-vertical .ui-slider-handle {
+    margin-left: -3px;
+    margin-bottom: -11px;
+    top: auto;
+}
+.ui-slider-vertical .ui-slider-range {
+    width: 100%;
+    bottom: 0;
+    border-radius: 0 0 30px 30px;
+}
+.ui-slider-vertical .ui-slider-segment {
+    position: absolute;
+    right: 3px;
+}
+.car {
+    opacity: 0.95;
+}
+.car rect {
+    stroke-width: 0px;
+    stroke-opacity: 0.75;
+}
+.highlighted rect {
+    stroke-width: 3px;
+    shape-rendering: crispEdges;
+}
+.g-ramp rect {
+    shape-rendering: crispEdges;
+}
+.diminished rect {
+    opacity: 0.5;
+}
+.bar {
+    cursor: pointer;
+    stroke-opacity: 0.4;
+    shape-rendering: crispEdges;
+}
+.bar.highlighted {
+    stroke-width: 6px;
+}

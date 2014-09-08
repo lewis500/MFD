@@ -1,0 +1,74 @@
+<!-- <div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+</div> -->
+<div class="modal-body">
+
+    <div ng-show="which.toTry">
+        <h3>What to try</h3>
+
+        <p>
+            <b>Increase the average vehicle trip length</b>momentarily and return to the default value quickly; note how the road becomes crowded and eventually grinds to a standstill state of gridlock (total collapse). This is an example of a chaotic system where small temporary perturbations can cause big changes.</p>
+
+        <p>
+            <b>Change the trip length again</b>, permanently if you wish, but now play with the interval slider and the infinity box to avoid gridlock. Fill the vertical bars as quickly as possible (maximize productivity) by adjusting the interval (metering). Change the trip length and repeat. Note that the best metering strategy depends on trip length, but gridlock can always be avoided.</p>
+
+        <p>
+            <b>Play with the interval slider after allowing the ring to get crowded.</b>Note that metering restrictively prior to the point of gridlock always restores functionality. If you get too close to gridlock, you will have to activate the infinity box and wait a while to restore functionality. (However, if you wait until gridlock happens, you will have to wait forever!)</p>
+    </div>
+
+
+    <div ng-show="which.patterns">
+        <h3>Patterns to Notice</h3>
+
+        <h4>The tipping point of crowdedness</h4>
+        <p>If you place the interval slider to the right of its range, with the trip length slider somewhere in the middle, the ring will operate in a stable regime (or phase) with few cars on the road and a steady but small exit rate—you can verify this by looking at the "cars on the road" (accumulation) and the "exit rate" counters in the center of the circle. If you then move the interval slider slightly to the left, allowing more cars to enter, both counters will increase in value and remain steady. You can keep doing that, but only up to a point. If you allow the number of cars on the road to increase beyond a critical tipping point, the car accumulation is no longer sustained, and the two counters run away from you (the exit rate declines and the accumulation increases). The ring has entered an unstable (over-crowded) phase, and grinds toward a standstill state of gridlock. This happens because over-crowding reduces the average car speed and the exit rate—and beyond the tipping point of overcrowding the exit rate is below the entering rate. The result is a vicious cycle of diminishing exit rates and rising accumulations that leads to gridlock.</p>
+
+        <h4>Robust control</h4>
+        <p>Experiment with the simulation and note that the critical accumulation value is roughly the same (about 14 cars) for all trip lengths greater than the default. (For the default you can get a few more cars because in this somewhat artificial case all the vehicles travel exactly two segments.) A good control strategy consists in keeping accumulations close to this critical value. It does not require you to know the current trip length (i.e., the origin-destination travel pattern). Try it. Change the trip length. Then, adjust the interval slider and let the exit rates be what they may. The best position of the slider and the maximum exit rate will vary with trip length (the maximum exit rate will be slightly below .2 for trip lengths close to 75 and well above .2 for trip lengths close to 50). But trip length does not have to be observed for the strategy to be successful.</p>
+
+        <h4>Disruptive effect of ramps</h4>
+        <p>When accumulations are super-critical, entering and exiting vehicles disrupt flow and create clusters of stopped vehicles. These clusters can move against the traffic stream, changing structure when they pass by entrances and exits. Drivers pass through these clusters (back to front) and in the process experience the “stop-and-go” motion.</p>
+
+    </div>
+
+    <div ng-show="which.application">
+        <h3>Application to urban traffic</h3>
+        <p>
+            Typical freeway systems involve many more vehicles, multiple lanes and more variation in trip length. As a result, they collapse and generate clusters much more gradually. Both phenomena are apparent in real data and in simulations. The gridlock phenomenon also arises in complex networks (e.g., in whole urban cores). In this case too, it can perhaps be controlled by restricting access with accumulation-based strategies that do not require knowing where people are going. To do this successfully, however, we need to monitor city traffic in real time. Unfortunately, most cities do not have the required infrastructure (yet) to do this effectively. This is a problem that deserves attention. Can you imagine controlling our ring without knowing precisely the trip length and being unable to see the picture?</p>
+    </div>
+
+    <div ng-show="which.further">
+        <b>Background and further information:</b>An early analysis of gridlock is provided in [1] and an extension to urban traffic in [2]. The disruptive effects of ramps have been examined empirically in [3]. The simulation uses the CA(M) model in [4] and a discrete version of the merging rule in [1] for a one-lane road. The merging rule assigns complete priority to entering vehicles over those circulating in the ring; thus, circulating vehicles stop at the entrances when another vehicle is entering--as if there was a yield sign. In reality, entering vehicles only claim partial priority. Partial priority slows the gridlock process (and the game) but does not eliminate gridlock; see [1] for analysis.</p>
+        <p class="maintext">1. Daganzo, C.F.
+            <a href="http://www.ce.berkeley.edu/~daganzo/isttt13.pdf" class="t1">
+                <b>The nature of freeway gridlock and how to prevent it</b>
+            </a>,
+            <em>Transportation and Traffic Theory</em>, Proc. 13th&nbsp; Int. Symp. Trans. Traffic Theory (J.B. Lesort, ed) pp. 629-646, Pergamon-Elsevier, Tarrytown, N.Y. (1996).
+            <br />2. Daganzo, C.F. <a href="http://www.its.berkeley.edu/publications/UCB/2005/VWP/UCB-ITS-VWP-2005-1.pdf" class="t1">Improving  city mobility through gridlock control: an approach and some ideas</a>, UC Berkeley Center for Future Urban Transport Working Paper UCB-ITS-VWP-2005-1, Institute of Transportation Studies, University of California, Berkeley; July 5 (2005).
+            <em>Transportation Research Part B</em>(in press, 2006).
+            <a name="OLE_LINK1" id="OLE_LINK1"></a>
+            <a name="OLE_LINK2" id="OLE_LINK2"></a>
+            <br />3. Ahn, S. and Cassidy, M.J. &nbsp;&ldquo;Formation of traffic oscillations&rdquo; (draft in preparation, 2006).
+            <br />4. Daganzo, C.F.
+            <a href="http://www.sciencedirect.com/science?_ob=ArticleURL&amp;_udi=B6V99-4GPW389-1&amp;_coverDate=06/30/2006&amp;_alid=381911145&amp;_rdoc=1&amp;_fmt=&amp;_orig=search&amp;_qd=1&amp;_cdi=5893&amp;_sort=d&amp;view=c&amp;_acct=C000059607&amp;_version=1&amp;_urlVersion=0&amp;_userid=4420&amp;md5=2e10b69e504be1c3fb0663e2931487d8">
+                <span class="t1">In traffic flow, cellular automata = kinematic waves</span>
+            </a>,
+            <em>Transportation Research Part B</em>. Vol. 40, Issue 5, pp. 396-403. June 2006. (Link to citation in Science Direct. Subscription required to view file.)
+            <br />
+        </p>
+
+    </div>
+
+    <div ng-show="which.controls">
+        <h3>Controls</h3>
+
+        <p>Three sliders control the different aspects of the simulation. They can be changed while the simulation runs. Sim Speed: Changes the speed at which the simulation runs—slow motion to fast forward. Interval: Changes the average interval between releases of successive cars at each entrance. The smallest interval possible is 100 units, about 2 seconds in the real world. If you check the inf box, no cars are allowed in, because the interval is infinite. Trip Length: Changes the average length of the trips that vehicles take. Each segment is 25 units long. And no trip can be shorter than 50 units or longer than 75.</p>
+
+    </div>
+
+
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>

@@ -3,28 +3,96 @@
 
 <head>
     <meta charset="utf-8">
-
     <!-- ============== CSS ===================== -->
     <title>Simulation</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="styles/slider2.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="slider2.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- ============== LIBRARIES ===================== -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script src="libraries/angular.min.js"></script>
-    <script src="libraries/buttons.js"></script>
-    <script src="libraries/slider.js"></script>
-    <script src="libraries/underscore.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="underscore.min.js"></script>
+    <script src="ui-bootstrap-custom-tpls-0.10.0.min.js"></script>
+    <script src="slider.js"></script>
 </head>
+
+
 
 <!-- ============== BODY =================== -->
 
-<ng-include src="'header.html'"></ng-include>
+
+
 
 <body ng-app="mainApp">
+    <div class="navbar navbar-fixed-top" role="navigation">
+        <div class="container" style="background-color: #fff;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <img src="textonlylogo300pi.png" alt="" style="margin-top:-15px;">
+                    <span style="font-size: 26px; font-color: #2c3e50"> The Nature of Urban Traffic Gridlock</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="container" ng-controller="mainCtrl">
+
+        <div class="row col-sm-8">
+            <p>The diagram below depicts a one-lane ring road with four segments. It can be animated to describe the physics of gridlock. Click "Play" button below at any time to start.</p>
+
+            <ul>
+                <li>
+                    <b>Four entrances</b> are designated by the
+                    <b>spurs</b> on the circle. Vehicles (not shown) are queued waiting to enter. When released, entering vehicles claim the right of way and appear in the ring as colored dots.</span>
+                </li>
+                <li>
+                    <span class="heading1">
+                        <span class="maintext">
+                            <b>Each entering vehicle is randomly assigned a destination/exit color</b>:
+                            <b>
+                                <span style="color: #e74c3c;">red</span>,
+                                <span style="color: #3498db;">blue</span>,
+                                <span style="color: #f1c40f">yellow,</span>
+                                <span style="color: #2ecc71">green</span>
+                            </b>.
+                            <br>When a vehicle arrives at its destination (square of the corresponding color), it exits.</span>
+                    </span>
+                </li>
+                <li>
+                    <span class="heading1">
+                        <span class="maintext">
+                            <b>Cumulative exit counts</b> for each color/destination are shown by the columns to the right of the circle.
+                        </span>
+                    </span>
+                    <span class="maintext">.</span>
+                </li>
+                <li>
+                    <b>The exit rate</b> is shown in the center of the circle. This measures the system's productivity.
+                </li>
+                <li>
+                    <b>Goal:</b> achieve the highest exit rate , thus the greatest productivity.
+                </li>
+                <li><b><a ng-click="modal.open('controls') "  ng-controller="ModalCtrl as modal">Click here</a></b> to see the controls explained in detail.
+                </li>
+            </ul>
+        </div>
+
+        <div ng-controller="ModalCtrl as modal" class="row col-sm-9 btn-group" style="margin-bottom: 30px;">
+            <button class="btn btn-success" ng-click="modal.open('toTry')">What to try</button>
+            <button class="btn btn-success" ng-click="modal.open('patterns')">Patterns to notice</button>
+            <button class="btn btn-success" ng-click="modal.open('application')">Real-world applications</button>
+            <button class="btn btn-success" ng-click="modal.open('further')">Further information</button>
+        </div>
+
         <div class="row">
             <div class="col-sm-6">
                 <div infrastructure></div>
@@ -38,7 +106,7 @@
                 <h5>Simulation Speed</h5>
                 <div class="slider" ui-slider="{orientation: 'horizontal', step: 5,  labeled: false}" min="10" max="60" ng-model="timer.velocity"></div>
                 <div class="row">
-                    <h5 class="col-xs-4">Ramp Rate (cars/10 sec)</h5>
+                    <h5 class="col-xs-6">Ramp Rate (cars/10 sec/ramp)</h5>
                     <div class="col-xs-5">
                         <label class="checkbox">
                             <input type="checkbox" ng-model="adder.paused" value="false">Stop Ramps
@@ -55,8 +123,8 @@
 </body>
 
 <!-- ============== LIBRARIES =================== -->
-<script type="text/javascript" src="libraries/angular-slider.js"></script>
-<script src="libraries/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="angular-slider.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <!-- ============== SCRIPTS =================== -->
 <script type="text/javascript">
@@ -70,11 +138,10 @@ app.run(['$rootScope',
     }
 ]);
 </script>
-<script src="scripts/services/dataService.js"></script>
-<script src="scripts/objects.js"></script>
-<script src="scripts/controllers/controller.js"></script>
-<script src="scripts/directives/infrastructure.js"></script>
-<script src="scripts/directives/bar.js"></script>
-
+<script src="objects.js"></script>
+<script src="dataService.js"></script>
+<script src="controller.js"></script>
+<script src="infrastructure.js"></script>
+<script src="bar.js"></script>
 
 </html>

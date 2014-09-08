@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Modal",
+				"ModalDemoCtrl"
+			],
+			[
 				"tim",
 				"timeSinceCall"
 			],
@@ -88,10 +92,18 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/dataService.js",
+			"file": "modal.html",
 			"settings":
 			{
-				"buffer_size": 4774,
+				"buffer_size": 7605,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ui-bootstrap-custom-tpls-0.10.0.js",
+			"settings":
+			{
+				"buffer_size": 36869,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,15 +111,31 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 3650,
+				"buffer_size": 9451,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/lewis/Desktop/plans/luxe todo",
+			"file": "/home/lewis/Desktop/plans/week",
 			"settings":
 			{
-				"buffer_size": 760,
+				"buffer_size": 444,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "style.css",
+			"settings":
+			{
+				"buffer_size": 2574,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "controller.js",
+			"settings":
+			{
+				"buffer_size": 2342,
 				"line_ending": "Unix"
 			}
 		}
@@ -115,7 +143,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 285.0,
+		"height": 348.0,
 		"selected_items":
 		[
 			[
@@ -124,6 +152,10 @@
 			],
 			[
 				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"PRETT",
 				"HTMLPrettify"
 			],
 			[
@@ -155,7 +187,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 478.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -174,24 +206,56 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/home/lewis/github/MFD",
+		"/home/lewis/Desktop",
+		"/home/lewis/Desktop/plans"
+	],
 	"file_history":
 	[
+		"/home/lewis/github/MFD/dataService.js",
+		"/home/lewis/Desktop/plans/agency",
+		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/.classpath",
+		"/home/lewis/github/MFD/.gitignore",
 		"/home/lewis/Desktop/plans/MFDTodo",
+		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/Car.java",
+		"/home/lewis/github/MFD/modal.html",
+		"/home/lewis/github/MFD/controller.js",
+		"/home/lewis/github/MFD/index.html",
+		"/home/lewis/github/MFD/bar.js",
+		"/home/lewis/github/MFD/scripts/directives/infrastructure.js",
+		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/Control.java",
+		"/home/lewis/github/MFD/circle.html",
+		"/home/lewis/github/MFD/header.html",
+		"/home/lewis/github/MFD/libraries/angular-slider.js",
+		"/home/lewis/github/MFD/scripts/controllers/lineCtrl.js",
+		"/home/lewis/github/MFD/scripts/directives/line.js",
+		"/home/lewis/github/MFD/line.html",
+		"/home/lewis/github/MFD/styles/flat-ui.css",
+		"/home/lewis/github/MFD/scripts/controllers/controller.js",
+		"/home/lewis/Desktop/plans/post todo",
+		"/home/lewis/Desktop/plans/luxe todo",
+		"/home/lewis/Desktop/plans/week",
+		"/home/lewis/github/MFD/styles/style.css",
 		"/home/lewis/github/MFD/libraries/rangeSlider/css/classic-min.css",
+		"/home/lewis/github/MFD/scripts/objects.js",
+		"/home/lewis/github/MFD/libraries/lodash.js",
+		"/home/lewis/github/MFD/scripts/controllers/circleCtrl.js",
+		"/home/lewis/github/MFD/scripts/services/dataService.js",
+		"/home/lewis/Desktop/plans/dataSpecs.js",
+		"/home/lewis/github/MFD/libraries/d3.v3.js",
+		"/home/lewis/github/MFD/scripts/dataService.js",
+		"/home/lewis/github/MFD/scripts/controller.js",
+		"/home/lewis/github/MFD/LICENSE",
+		"/home/lewis/github/MFD/gridlock.mdown",
 		"/home/lewis/Desktop/parsed/toc.ncx",
 		"/home/lewis/Desktop/test.html",
 		"/home/lewis/Desktop/housing",
 		"/home/lewis/Desktop/week",
 		"/home/lewis/github/MFD/scripts/infrastructure.js",
-		"/home/lewis/github/MFD/libraries/angular-slider.js",
-		"/home/lewis/github/MFD/styles/style.css",
 		"/home/lewis/github/MFD/libraries/slider.js",
-		"/home/lewis/github/MFD/index.html",
-		"/home/lewis/github/MFD/scripts/objects.js",
-		"/home/lewis/github/MFD/scripts/controller.js",
 		"/home/lewis/Desktop/research",
-		"/home/lewis/github/MFD/scripts/dataService.js",
-		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/Car.java",
 		"/home/lewis/github/MFD/libraries/rangeSlider/GPL-License.txt",
 		"/home/lewis/github/MFD/scripts/bar.js",
 		"/home/lewis/Downloads/Gridlock animation source code 4 10 06/java.policy.applet",
@@ -199,7 +263,6 @@
 		"/home/lewis/Desktop/MFDTodo",
 		"/home/lewis/github/MFD/libraries/rangeSlider/css/iThing.css",
 		"/home/lewis/Desktop/bottleneck todo",
-		"/home/lewis/github/MFD/.gitignore",
 		"/home/lewis/Desktop/luxe todo",
 		"/home/lewis/Desktop/todo housing.txt",
 		"/home/lewis/github/MFD/styles/slider2.css",
@@ -211,8 +274,6 @@
 		"/home/lewis/github/MFD/libraries/rangeSlider/jquery-ui-custom.js",
 		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/lewis/github/MFD/libraries/angular.min.js",
-		"/home/lewis/github/MFD/LICENSE",
-		"/home/lewis/github/MFD/libraries/d3.v3.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/demo/sliderDemo.js",
 		"/home/lewis/github/MFD/rangeSlider.js",
 		"/home/lewis/github/MFD/libraries/rangeSlider/demo/editSliderDemo.js",
@@ -230,7 +291,6 @@
 		"/home/lewis/github/MFD/scripts/bus.js",
 		"/home/lewis/Desktop/tracker todo",
 		"/home/lewis/github/MFD/scripts/car.js",
-		"/home/lewis/github/MFD/header.html",
 		"/home/lewis/github/MFD/styles/car2.svg",
 		"/home/lewis/github/MFD/styles/slider.css",
 		"/home/lewis/github/MFD/libraries/rangeSlider/demo/index.html",
@@ -287,6 +347,75 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"container",
+			"h5",
+			"true",
+			"undersc",
+			"bootstrap",
+			"triplength",
+			"setnext",
+			"getnext",
+			"isempty",
+			"tempty",
+			"tick",
+			"exit",
+			"invoke",
+			"choose",
+			"slider.js",
+			"boot",
+			"libraries",
+			"slider",
+			"angular",
+			"slider",
+			"boot",
+			"Med",
+			"Low",
+			"Middle",
+			"Left",
+			"radioModel",
+			"append",
+			"yellow",
+			"green",
+			"steelblue",
+			"crimson",
+			"render",
+			"rect",
+			"greenpar",
+			"lightgreen",
+			"height",
+			"fill",
+			"width:",
+			"width",
+			"100",
+			"loc",
+			"100",
+			"exit",
+			"index:",
+			"transform",
+			"addcar",
+			"cotnroller",
+			"addcar",
+			"append",
+			"push",
+			"assign",
+			"nextCar",
+			"max",
+			"howFar",
+			"patches",
+			"advance",
+			"$scope",
+			"elapse",
+			"width",
+			"link",
+			"s.",
+			"main",
+			"DS",
+			"s.",
+			"rootscope",
+			"s.",
+			"rootscope",
+			"infrastructure",
+			"bar",
 			"h5",
 			"pace",
 			".pace",
@@ -345,76 +474,7 @@
 			"isempty",
 			"100",
 			"isempty",
-			"interval",
-			"intervals",
-			"W",
-			"triplength",
-			"adder",
-			"tempty",
-			"isempty",
-			"choose",
-			"patche",
-			"patcher",
-			"choose",
-			"removeCar",
-			"W",
-			">",
-			"tickfunction",
-			"reset",
-			"triplength",
-			"numcars",
-			"getnext",
-			"setnext",
-			"getnext",
-			"tickarray",
-			"cnt",
-			"tweenlabel",
-			"tickLabels",
-			"patcher",
-			"choose",
-			"next",
-			"reset",
-			"W",
-			"tempty",
-			"isfree",
-			"getnext",
-			"dest",
-			"getnext",
-			"stopper",
-			"getnext",
-			"transition",
-			"carradius",
-			"outerradius",
-			"width:",
-			"rx",
-			"outerradius",
-			"100",
-			"back",
-			"cubic",
-			"200",
-			"1000",
-			"gyaxis",
-			"debugger;",
-			".domain",
-			"div",
-			"radius",
-			"bootstra",
-			"radius",
-			"height",
-			"carcolor",
-			"carcolors",
-			"color",
-			"carcolors",
-			".car",
-			"render",
-			"resize",
-			"radius",
-			"resize",
-			"min",
-			"transition",
-			"300",
-			"100",
-			"350"
+			"interval"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -422,6 +482,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"h4",
+			"line",
+			"$scope.",
+			"dataService",
+			"$scope.",
 			"span",
 			"s.",
 			"105",
@@ -460,30 +525,148 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/dataService.js",
+					"file": "modal.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4774,
+						"buffer_size": 7605,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								975,
-								975
+								5030,
+								5030
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 581.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ui-bootstrap-custom-tpls-0.10.0.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 36869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15899,
+								15899
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 14149.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9451,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5774,
+								5774
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 926.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/lewis/Desktop/plans/week",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								228,
+								228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2574,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -495,61 +678,33 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "index.html",
+					"buffer": 5,
+					"file": "controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3650,
+						"buffer_size": 2342,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								40,
-								40
+								1731,
+								1731
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 671.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/lewis/Desktop/plans/luxe todo",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 760,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -602,20 +757,108 @@
 		"selected_items":
 		[
 			[
+				"week",
+				"Desktop/plans/week"
+			],
+			[
+				".css",
+				"MFD/style.css"
+			],
+			[
+				"modal.html",
+				"MFD/modal.html"
+			],
+			[
+				"controll",
+				"MFD/controller.js"
+			],
+			[
+				"ind",
+				"MFD/index.html"
+			],
+			[
+				"bar",
+				"MFD/bar.js"
+			],
+			[
+				"datas",
+				"MFD/dataService.js"
+			],
+			[
+				"header",
+				"MFD/header.html"
+			],
+			[
+				"head",
+				"MFD/header.html"
+			],
+			[
+				"infra",
+				"MFD/scripts/directives/infrastructure.js"
+			],
+			[
+				"line.html",
+				"MFD/line.html"
+			],
+			[
+				"line",
+				"MFD/scripts/directives/line.js"
+			],
+			[
+				"linec",
+				"MFD/scripts/controllers/lineCtrl.js"
+			],
+			[
+				"post",
+				"Desktop/plans/post todo"
+			],
+			[
+				"control",
+				"MFD/scripts/controllers/controller.js"
+			],
+			[
+				"style",
+				"MFD/styles/style.css"
+			],
+			[
+				"to",
+				"Desktop/plans/post todo"
+			],
+			[
+				"obj",
+				"MFD/scripts/objects.js"
+			],
+			[
+				"linect",
+				"MFD/scripts/controllers/lineCtrl.js"
+			],
+			[
+				"contro",
+				"MFD/scripts/controllers/controller.js"
+			],
+			[
+				"object",
+				"MFD/scripts/objects.js"
+			],
+			[
+				"circle",
+				"MFD/scripts/controllers/circleCtrl.js"
+			],
+			[
+				"circl",
+				"MFD/circle.html"
+			],
+			[
+				"cir",
+				"MFD/circle.html"
+			],
+			[
 				"mfd",
 				"Desktop/plans/MFDTodo"
 			],
 			[
 				"todo",
 				"Desktop/plans/luxe todo"
-			],
-			[
-				"week",
-				"Desktop/week"
-			],
-			[
-				"ind",
-				"MFD/index.html"
 			],
 			[
 				"angular-s",
@@ -626,36 +869,12 @@
 				"MFD/libraries/slider.js"
 			],
 			[
-				"object",
-				"MFD/scripts/objects.js"
-			],
-			[
-				"obj",
-				"MFD/scripts/objects.js"
-			],
-			[
-				"datas",
-				"MFD/scripts/dataService.js"
-			],
-			[
-				"infra",
-				"MFD/scripts/infrastructure.js"
-			],
-			[
 				"obje",
 				"MFD/scripts/objects.js"
 			],
 			[
-				"controll",
-				"MFD/scripts/controller.js"
-			],
-			[
 				"ifra",
 				"MFD/scripts/infrastructure.js"
-			],
-			[
-				"bar",
-				"MFD/scripts/bar.js"
 			],
 			[
 				"wee",
@@ -704,10 +923,6 @@
 			[
 				"main.css",
 				"MFD/libraries/rangeSlider/css/classic-min.css"
-			],
-			[
-				"style",
-				"MFD/styles/style.css"
 			],
 			[
 				"car",
@@ -766,10 +981,6 @@
 				"MFD/scripts/bar.js"
 			],
 			[
-				".css",
-				"MFD/styles/style.css"
-			],
-			[
 				"",
 				"MFD/scripts/controller.js"
 			],
@@ -792,18 +1003,6 @@
 			[
 				"button",
 				"MFD/libraries/buttons.js"
-			],
-			[
-				"contro",
-				"MFD/scripts/controller.js"
-			],
-			[
-				"control",
-				"MFD/scripts/controller.js"
-			],
-			[
-				"header",
-				"MFD/header.html"
 			],
 			[
 				"slider.css",
@@ -936,6 +1135,7 @@
 		],
 		"width": 0.0
 	},
+	"selected_group": 0,
 	"settings":
 	{
 	},
@@ -943,7 +1143,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 86.0,
+	"side_bar_width": 320.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
